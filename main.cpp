@@ -1,19 +1,20 @@
 #include"main.h"
 #include<DxLib.h>
 
-int gametype = GAME_TITLE;
-int g_gametitleimg;
+int monitorsize_x = 960;
+int monitorsize_y = 840;
 
-BOOL KeyChecker(int key);
+int gamemainsize_x = 600;
+int gamemainsize_y = 800;
+
+int gametype = GAME_TITLE;
+
 BOOL g_akey_prev;
 
 int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 	ChangeWindowMode(TRUE);
-	SetGraphMode(960, 840, 32);
+	SetGraphMode(monitorsize_x, monitorsize_y, 32);
 	if (DxLib_Init() == -1)return -1;
-
-	g_gametitleimg = LoadGraph("media\\smp1_title.png");
-
 
 	while (ProcessMessage() == 0){
 		switch (gametype)
@@ -34,11 +35,7 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 	return 0;
 }
 void DrawTitle(){
-	DrawBox(0, 0, 800, 600, GetColor(255, 255, 255), TRUE);
-	DrawGraph(00, 0, g_gametitleimg, TRUE);
 
-	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
-	if (KeyChecker(key) == TRUE) gametype = GAME_MAIN;
 
 
 }
@@ -62,5 +59,4 @@ int KeyChecker(int key){
 		g_akey_prev = FALSE;
 	}
 	return FALSE;
-
 }
