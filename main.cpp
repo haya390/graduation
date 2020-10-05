@@ -27,8 +27,10 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 			DrawGameMain();
 			break;
 		case GAME_OVER:
+			DrawGameOver();
 			break;
 		case GAME_CLEAR:
+			DrawGameClear();
 			break;
 		}
 		ScreenFlip();
@@ -48,9 +50,17 @@ void DrawTitle(){
 }
 void DrawGameMain(){
 	SetGraphMode(gamemainsize_x, gamemainsize_y, 32);
+
+	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
+	if (KeyChecker(key) == TRUE){
+		gametype = GAME_OVER;
+	}
 }
 void DrawGameOver(){
+	SetGraphMode(monitorsize_x, monitorsize_y, 32);
 
+	DrawStringToHandle(480, 420, "左を押すとコンティニュー/右を押すとゲーム終了",GetColor(255,255,255),,32,FALSE);
+	
 }
 void DrawGameClear(){
 
