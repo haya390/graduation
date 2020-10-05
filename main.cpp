@@ -8,8 +8,7 @@ int gamemainsize_x = 600;
 int gamemainsize_y = 800;
 
 int gametype = GAME_TITLE;
-
-BOOL g_akey_prev;
+BOOL g_akey_prev = FALSE;
 
 int KeyChecker(int);
 
@@ -32,6 +31,7 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 		case GAME_CLEAR:
 			break;
 		}
+		ScreenFlip();
 	}
 
 	WaitKey();
@@ -41,9 +41,9 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 void DrawTitle(){
 	SetGraphMode(monitorsize_x, monitorsize_y, 32);
 
-	int key = GetJoypadInputState(DX_INPUT_PAD1);
+	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	if (KeyChecker(key) == TRUE){
-			gametype = GAME_MAIN;
+		gametype = GAME_MAIN;
 	}
 }
 void DrawGameMain(){
