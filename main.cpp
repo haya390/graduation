@@ -54,6 +54,7 @@ void DrawGameMain(){
 	if (KeyChecker(key) == TRUE){
 		gametype = GAME_OVER;
 	}
+	gamemain();
 }
 void DrawGameOver(){
 	int largefont = CreateFontToHandle("ƒƒCƒŠƒI", 42, -1, DX_FONTTYPE_NORMAL);

@@ -1,6 +1,8 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
+#include"gamemain.h"
+
 enum GameType
 {
 	GAME_TITLE = 0,GAME_MAIN = 1,GAME_OVER = 2,GAME_CLEAR = 3
