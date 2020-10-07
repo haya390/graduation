@@ -45,11 +45,11 @@ void DrawTitle(){
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	if (KeyChecker(key) == TRUE){
 		gametype = GAME_MAIN;
+		InitStage(1);
+		SetGraphMode(gamemainsize_x, gamemainsize_y, 32);
 	}
 }
 void DrawGameMain(){
-	SetGraphMode(gamemainsize_x, gamemainsize_y, 32);
-
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	if (KeyChecker(key) == TRUE){
 		gametype = GAME_OVER;
