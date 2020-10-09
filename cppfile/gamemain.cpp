@@ -4,7 +4,7 @@
 
 int MAPDATA[MAPHEIGHT][MAPWIDTH];
 
-Charadata HERO;
+int hx, hy;
 
 void InitStage(int i){
 	char buf[256];
@@ -15,13 +15,11 @@ void InitStage(int i){
 		FileRead_gets(buf, 256, fh);
 		for (int x = 0; x < MAPWIDTH; x++){
 			MAPDATA[y][x] = (int)(buf[x] - '0');
-			if (buf[x] - '0' == MAP_HERO){
-				HERO.x = (float)(x*IMGSIZE);
-				HERO.y = (float)(y*IMGSIZE);
-			}
+			hx = x;
+			hy = y;
 		}
 	}
-
+	syokika();
 	FileRead_close(fh);
 }
 

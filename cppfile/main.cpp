@@ -17,6 +17,8 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 	SetGraphMode(monitorsize_x, monitorsize_y, 32);
 	if (DxLib_Init() == -1)return -1;
 
+	syokika();
+
 	while (ProcessMessage() == 0){
 		switch (gametype)
 		{
