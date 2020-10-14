@@ -15,14 +15,16 @@ void InitStage(int i){
 		FileRead_gets(buf, 256, fh);
 		for (int x = 0; x < MAPWIDTH; x++){
 			MAPDATA[y][x] = (int)(buf[x] - '0');
-			hx = x;
-			hy = y;
+			if (MAPDATA[y][x] == MAP_HERO){
+				HERO.x = x * IMGSIZE;
+				HERO.y = y * IMGSIZE;
+			}
 		}
 	}
-	syokika();
+	
 	FileRead_close(fh);
 }
 
 void gamemain(){
-	
+	if (DrawGraph(0, 0, G_IMGhandle, TRUE) == -1)exit(0);
 }

@@ -16,10 +16,13 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 	ChangeWindowMode(TRUE);
 	SetGraphMode(monitorsize_x, monitorsize_y, 32);
 	if (DxLib_Init() == -1)return -1;
+	if (IMGhandle() == FALSE)return -1;
+	SetDrawScreen(DX_SCREEN_BACK);
 
-	syokika();
+
 
 	while (ProcessMessage() == 0){
+		ClearDrawScreen();
 		switch (gametype)
 		{
 		case GAME_TITLE:
@@ -35,7 +38,6 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 			DrawGameClear();
 			break;
 		}
-		if (CheckHitKey(KEY_INPUT_ESCAPE) == TRUE)exit(0);
 		ScreenFlip();
 	}
 	DxLib_End();
@@ -55,18 +57,19 @@ void DrawGameMain(){
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	if (KeyChecker(key) == TRUE){
 		gametype = GAME_OVER;
+		SetGraphMode(monitorsize_x, monitorsize_y, 32);
 	}
 	gamemain();
 }
 void DrawGameOver(){
 	int largefont = CreateFontToHandle("メイリオ", 42, -1, DX_FONTTYPE_NORMAL);
-	SetGraphMode(monitorsize_x, monitorsize_y, 32);
 
 	DrawStringToHandle(200, 200, "左を押すとコンティニュー", GetColor(255, 255, 255), largefont, 32, FALSE);
 	DrawStringToHandle(200, 250, "右を押すとゲーム終了", GetColor(255, 255, 255), largefont, 32, FALSE);
 
 	if (CheckHitKey(KEY_INPUT_LEFT) == TRUE){
 		gametype = GAME_MAIN;
+		SetGraphMode(gamemainsize_x, gamemainsize_y, 32);
 		/*時間処理*/
 	}
 	else if (CheckHitKey(KEY_INPUT_RIGHT) == TRUE){
