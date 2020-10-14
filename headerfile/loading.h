@@ -6,6 +6,6 @@
 
 BOOL IMGhandle();
 
-extern int G_IMGhandle[30];
+extern int G_IMGhandle;
 
 #endif

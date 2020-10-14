@@ -11,7 +11,7 @@ enum type{
 	bullet = 1,beam = 2
 };
 
-struct BULLET{
+struct Data{
 	float x; /*â°é≤*/
 	float y; /*ècé≤*/
 	BOOL living; /*ë∂ç›èÿñæ*/
@@ -27,9 +27,11 @@ struct Charadata{
 	float x;/*â°é≤*/
 	float y;/*ècé≤*/
 	BOOL living;/*ë∂ç›èÿñæ*/
-	BULLET ENEMY_BULLET[5];
-	BULLET HERO_BULLET[20];
+	Data BULLET[20];
 };
+
+extern Charadata HERO;
+extern Charadata ENEMY;
 
 extern int hx,ex;
 extern int hy,ey;
