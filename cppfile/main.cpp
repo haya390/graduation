@@ -33,7 +33,7 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 			DrawGameMain();
 			break;
 		case GAME_OVER:
-			DrawGameOver();
+ 			DrawGameOver();
 			break;
 		case GAME_CLEAR:
 			DrawGameClear();

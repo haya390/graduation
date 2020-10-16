@@ -1,4 +1,3 @@
-#include<stdio.h>
 #include<DxLib.h>
 #include"gamemain.h"
 
@@ -27,6 +26,4 @@ void InitStage(int i){
 
 void gamemain(){
 	DrawGraph(0, 0, G_IMGhandle[0], TRUE);
-	DrawExtendGraph(0, 0, 300, 300, G_IMGhandle[0], TRUE);
-	LoadGraphScreen(100, 100, "media\\Ž©‹@.png", TRUE);
 }
