@@ -26,5 +26,7 @@ void InitStage(int i){
 }
 
 void gamemain(){
-	if (DrawGraph(0, 0, G_IMGhandle, TRUE) == -1)exit(0);
+	DrawGraph(0, 0, G_IMGhandle[0], TRUE);
+	DrawExtendGraph(0, 0, 300, 300, G_IMGhandle[0], TRUE);
+	LoadGraphScreen(100, 100, "media\\Ž©‹@.png", TRUE);
 }

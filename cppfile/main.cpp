@@ -13,6 +13,7 @@ BOOL g_akey_prev = FALSE;
 int KeyChecker(int);
 
 int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
+	SetWindowSizeChangeEnableFlag(TRUE);
 	ChangeWindowMode(TRUE);
 	SetGraphMode(monitorsize_x, monitorsize_y, 32);
 	if (DxLib_Init() == -1)return -1;
@@ -21,7 +22,7 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 
 
 
-	while (ProcessMessage() == 0){
+	while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0){
 		ClearDrawScreen();
 		switch (gametype)
 		{
@@ -44,6 +45,7 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 	return 0;
 }
 void DrawTitle(){
+	DrawBox(0, 0, 960, 840, GetColor(255, 255, 255), true);
 	SetGraphMode(monitorsize_x, monitorsize_y, 32);
 
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);

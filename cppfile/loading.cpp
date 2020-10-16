@@ -1,10 +1,10 @@
 #include"loading.h"
 
-int G_IMGhandle;
+int G_IMGhandle[10];
 
 BOOL IMGhandle(){
 
-	G_IMGhandle = LoadGraph("media\\Ž©‹@.png");
-	if (G_IMGhandle == -1)return FALSE;
+	G_IMGhandle[0] = LoadGraph("media\\Ž©‹@.png");
+	if (G_IMGhandle[0] == -1)return FALSE;
 
 }
