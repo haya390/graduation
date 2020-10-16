@@ -1,6 +1,8 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
+#include<DxLib.h>
+#include"loading.h"
 #include"gamemain.h"
 #include"cdflame.h"
 #include"cdprocess.h"

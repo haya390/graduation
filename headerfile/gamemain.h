@@ -2,6 +2,7 @@
 #define __GAMEMAIN_H__
 
 #include<DxLib.h>
+#include"main.h"
 #include"loading.h"
 #include"cdflame.h"
 #include"cdprocess.h"
