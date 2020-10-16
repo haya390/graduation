@@ -2,6 +2,8 @@
 #define __MAIN_H__
 
 #include"gamemain.h"
+#include"cdflame.h"
+#include"cdprocess.h"
 
 enum GameType
 {

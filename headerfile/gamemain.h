@@ -14,7 +14,7 @@ enum MAPDATA
 void gamemain();
 void InitStage(int);
 
-#define MAPWIDTH 13 /*•*/
+#define MAPWIDTH 12 /*•*/
 #define MAPHEIGHT 50 /*‚‚³*/
 #define IMGSIZE 50/*‰æ‘œƒTƒCƒY*/
 

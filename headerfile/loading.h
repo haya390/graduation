@@ -4,8 +4,13 @@
 #include<DxLib.h>
 #include<stdio.h>
 
+enum youso
+{
+	player,enemy1,enemy2,enemy3,field,wall
+};
+
 BOOL IMGhandle();
 
-extern int G_IMGhandle;
+extern int G_IMGhandle[10];
 
 #endif

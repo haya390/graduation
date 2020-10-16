@@ -3,6 +3,7 @@
 
 #include<DxLib.h>
 #include<stdio.h>
+#include"cdprocess.h"
 
 enum attacktype{
 	red = 1, blue = 2, green = 3
