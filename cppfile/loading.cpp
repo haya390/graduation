@@ -8,5 +8,6 @@ BOOL IMGhandle(){
 
 	G_IMGhandle[player] = LoadGraph("media\\Ž©‹@.png");
 	if (G_IMGhandle[player] == -1)return FALSE;
-	
+
+	return TRUE;
 }

@@ -18,6 +18,7 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 	SetGraphMode(monitorsize_x, monitorsize_y, 32);
 	if (DxLib_Init() == -1)return -1;
 	if (IMGhandle() == FALSE)return -1;
+	SetWindowText("Trinity");
 	SetDrawScreen(DX_SCREEN_BACK);
 
 
@@ -45,7 +46,7 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 	return 0;
 }
 void DrawTitle(){
-	DrawBox(0, 0, 960, 840, GetColor(255, 255, 255), true);
+	DrawGraph(0, 0, G_IMGhandle[0], TRUE);
 	SetGraphMode(monitorsize_x, monitorsize_y, 32);
 
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);

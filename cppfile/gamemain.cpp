@@ -25,5 +25,7 @@ void InitStage(int i){
 }
 
 void gamemain(){
-	DrawGraph(0, 0, G_IMGhandle[0], TRUE);
+	
+	DrawGraph(0,0, G_IMGhandle[0], TRUE);
+	WaitKey();
 }
