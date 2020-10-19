@@ -1,5 +1,6 @@
 #include<DxLib.h>
 #include"gamemain.h"
+#include"loading.h"
 
 int MAPDATA[MAPHEIGHT][MAPWIDTH];
 
@@ -25,7 +26,5 @@ void InitStage(int i){
 }
 
 void gamemain(){
-	
 	DrawGraph(0,0, G_IMGhandle[0], TRUE);
-	WaitKey();
 }

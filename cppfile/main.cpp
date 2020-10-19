@@ -17,7 +17,7 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 	ChangeWindowMode(TRUE);
 	SetGraphMode(monitorsize_x, monitorsize_y, 32);
 	if (DxLib_Init() == -1)return -1;
-	if (IMGhandle() == FALSE)return -1;
+	if (IMGhandle() == FALSE)return FALSE;
 	SetWindowText("Trinity");
 	SetDrawScreen(DX_SCREEN_BACK);
 
@@ -46,14 +46,15 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 	return 0;
 }
 void DrawTitle(){
-	DrawGraph(0, 0, G_IMGhandle[0], TRUE);
 	SetGraphMode(monitorsize_x, monitorsize_y, 32);
+	IMGhandle();
 
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	if (KeyChecker(key) == TRUE){
 		gametype = GAME_MAIN;
 		InitStage(1);
 		SetGraphMode(gamemainsize_x, gamemainsize_y, 32);
+		IMGhandle();
 	}
 }
 void DrawGameMain(){
@@ -61,6 +62,7 @@ void DrawGameMain(){
 	if (KeyChecker(key) == TRUE){
 		gametype = GAME_OVER;
 		SetGraphMode(monitorsize_x, monitorsize_y, 32);
+		IMGhandle();
 	}
 	gamemain();
 }
@@ -73,6 +75,7 @@ void DrawGameOver(){
 	if (CheckHitKey(KEY_INPUT_LEFT) == TRUE){
 		gametype = GAME_MAIN;
 		SetGraphMode(gamemainsize_x, gamemainsize_y, 32);
+		IMGhandle();
 		/*éûä‘èàóù*/
 	}
 	else if (CheckHitKey(KEY_INPUT_RIGHT) == TRUE){
