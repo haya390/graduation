@@ -21,6 +21,7 @@ struct Data{
 };
 
 struct Charadata{
+	int IMG[6];
 	int LIFE;/*Å‘å”í’e‰ñ”*/
 	float movement;/*ˆÚ“®—Ê*/
 	int attacktype;/*‘®«*/
