@@ -10,9 +10,22 @@ void syokika(){
 	HERO.LIFE = 3;
 	HERO.movement = 1;
 	HERO.type = bullet;
-	HERO.x = hx;
-	HERO.y = hy;
 	for (int i = 0; i < bullet_count; i++){
 		HERO.BULLET[i].living = FALSE;
 	}
+}
+void Init_ENEMY1(){
+
+
+
+}
+void Init_ENEMY2(){
+
+
+
+}
+void Init_ENEMY3(){
+
+
+
 }
