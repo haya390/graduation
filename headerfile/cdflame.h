@@ -9,7 +9,7 @@ enum attacktype{
 	red = 1, blue = 2, green = 3
 };
 enum type{
-	bullet = 1,beam = 2
+	bullet = 1/*À’e*/,beam = 2
 };
 
 struct Data{
@@ -21,15 +21,16 @@ struct Data{
 };
 
 struct Charadata{
-	int IMG[6];
+	float x;/*‰¡²*/
+	float y;/*c²*/
 	int LIFE;/*Å‘å”í’e‰ñ”*/
 	float movement;/*ˆÚ“®—Ê*/
 	int attacktype;/*‘®«*/
 	int type;/*À’e/ƒr[ƒ€*/
-	float x;/*‰¡²*/
-	float y;/*c²*/
 	BOOL living;/*‘¶İØ–¾*/
 	Data BULLET[20];
+	
+
 };
 
 extern Charadata HERO;
@@ -39,5 +40,8 @@ extern int hx,ex;
 extern int hy,ey;
 
 void syokika();
+void Init_ENEMY1();
+void Init_ENEMY2();
+void Init_ENEMY3();
 
 #endif

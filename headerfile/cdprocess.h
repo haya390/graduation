@@ -5,4 +5,6 @@
 #include"gamemain.h"
 #include"cdflame.h"
 
+void move();
+
 #endif

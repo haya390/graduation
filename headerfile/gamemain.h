@@ -9,7 +9,7 @@
 
 enum MAPDATA
 {
-	MAP_NO = 0,MAP_HERO = 1,MAP_ENEMY_1 = 2,MAP_ENEMY_2 = 3,MAP_ENEMY_3 = 4,MAP_WALL = 5
+	MAP_FIELD,MAP_ENEMY_1,MAP_ENEMY_2,MAP_ENEMY_3,MAP_HERO,MAP_WALL
 };
 
 void gamemain();
@@ -20,5 +20,7 @@ void InitStage(int);
 #define IMGSIZE 50/*‰æ‘œƒTƒCƒY*/
 
 extern int MAPDATA[MAPHEIGHT][MAPWIDTH];
+
+void DrawMap();
 
 #endif
