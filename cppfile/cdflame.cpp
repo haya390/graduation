@@ -10,6 +10,7 @@ void syokika(){
 	HERO.LIFE = 3;
 	HERO.movement = 1;
 	HERO.type = bullet;
+	HERO.scrollx = 0;
 	for (int i = 0; i < bullet_count; i++){
 		HERO.BULLET[i].living = FALSE;
 	}
