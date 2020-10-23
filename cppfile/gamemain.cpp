@@ -43,7 +43,7 @@ void gamemain(){
 
 void DrawMap(){
 
-	int sc = (int)(HERO.scrollx / IMGSIZE);
+	int sc = (int)(HERO.scrolly / IMGSIZE);
 
 	for (int y = 0; y < MAPHEIGHT; y++){
 		for (int x = 0; x < MAPWIDTH; x++){

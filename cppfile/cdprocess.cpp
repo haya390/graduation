@@ -5,19 +5,19 @@
 void move(){
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 
-	float hy = HERO.y;
+	float hy = HERO.y - 1700;
 
-	if ((hy - HERO.scrollx) < SCROLL_STAPOS){
-		HERO.scrollx += (hy - HERO.scrollx);
+	if ((hy - HERO.scrolly) < SCROLL_STAPOS){
+		HERO.scrolly += (hy - HERO.scrolly);
 	}
-	if (hy > HERO.scrollx)hy = HERO.y;
+	if (hy - 1700 > HERO.scrolly)hy = HERO.y;	
 	
 
 	if (key & PAD_INPUT_UP){
-		HERO.y -= 1;
+		HERO.y -= 10;
 	}
 	if (key & PAD_INPUT_DOWN){
-		HERO.y += 1;
+		HERO.y += 10;
 	}
 	if (key & PAD_INPUT_LEFT){
 		HERO.x -= 1;
