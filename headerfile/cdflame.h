@@ -29,7 +29,7 @@ struct Charadata{
 	int type;/*À’e/ƒr[ƒ€*/
 	BOOL living;/*‘¶İØ–¾*/
 	Data BULLET[20];
-	float scrollx;
+	float scrolly;
 
 };
 
