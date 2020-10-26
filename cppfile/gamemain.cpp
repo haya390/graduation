@@ -33,38 +33,39 @@ void InitStage(int i){
 }
 
 void gamemain(){
-	if(IMG_FLAME_RATE == 11) IMG_FLAME_RATE = 0;
-	DrawGraph(HERO.x,HERO.y - 1700,gif[IMG_FLAME_RATE],TRUE);
 
 	move();
+	DrawMap();
 
-	IMG_FLAME_RATE++;
 }
 
 void DrawMap(){
+	if (IMG_FLAME_RATE == 11) IMG_FLAME_RATE = 0;
 
 	int sc = (int)(HERO.scrolly / IMGSIZE);
 
 	for (int y = 0; y < MAPHEIGHT; y++){
 		for (int x = 0; x < MAPWIDTH; x++){
-			if (x + sc >= MAPHEIGHT)break;
-			switch (MAPDATA[y][x + sc])
+			
+			switch (MAPDATA[y][x])
 			{
 			case field:
-				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1700, G_IMGhandle[field], TRUE);
+				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1700, G_IMGhandle[field][0], TRUE);
 				break;
 			case enemy1:
-				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1700, G_IMGhandle[enemy1], TRUE);
+				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1700, G_IMGhandle[enemy1][IMG_FLAME_RATE], TRUE);
 				break;
 			case enemy2:
+				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1700, G_IMGhandle[enemy2][IMG_FLAME_RATE], TRUE);
 				break;
 			case enemy3:
+				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1700, G_IMGhandle[enemy3][IMG_FLAME_RATE], TRUE);
 				break;
 			case player:
-				break;
-			case wall:
+				DrawGraph(HERO.x, HERO.y - 1700, gif[IMG_FLAME_RATE], TRUE);
 				break;
 			}
 		}
 	}
+	IMG_FLAME_RATE++;
 }
