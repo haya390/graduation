@@ -5,10 +5,10 @@
 
 enum youso
 {
-	field,enemy1,enemy2,enemy3,player,wall
+	field,enemy1,enemy2,enemy3,player
 };
 
-extern int G_IMGhandle[10];
+extern int G_IMGhandle[10][13];
 extern int gif[12];
 
 BOOL IMGhandle();
