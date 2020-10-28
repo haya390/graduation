@@ -20,6 +20,7 @@ void InitStage(int);
 #define IMGSIZE 50/*画像サイズ*/
 
 extern int MAPDATA[MAPHEIGHT][MAPWIDTH];
+extern int SHP;/*自機初期位置*/
 
 void DrawMap();
 

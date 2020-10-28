@@ -6,6 +6,7 @@
 #include"cdflame.h"
 
 void move();
+BOOL CheckEnd(int);
 
 extern float scrolly;
 
