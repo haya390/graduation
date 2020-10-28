@@ -79,6 +79,7 @@ void DrawGameOver(){
 		SetGraphMode(gamemainsize_x, gamemainsize_y, 32);
 		IMGhandle();
 		/*ŠÔˆ—*/
+
 	}
 	else if (CheckHitKey(KEY_INPUT_RIGHT) == TRUE){
 		exit(0);

@@ -25,6 +25,15 @@ void InitStage(int i){
 				HERO.x = x * IMGSIZE;
 				HERO.y = y * IMGSIZE;
 			}
+			if (MAPDATA[y][x] == enemy1){
+				Init_ENEMY1();
+			}
+			if (MAPDATA[y][x] == enemy2){
+				Init_ENEMY2();
+			}
+			if (MAPDATA[y][x] == enemy3){
+				Init_ENEMY3();
+			}
 		}
 	}
 	
