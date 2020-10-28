@@ -11,6 +11,7 @@ int MAPDATA[MAPHEIGHT][MAPWIDTH];
 int hx, hy;
 int i = 0;
 int IMG_FLAME_RATE = 0;
+int SHP;
 
 void InitStage(int i){
 	char buf[256];
@@ -24,6 +25,7 @@ void InitStage(int i){
 			if (MAPDATA[y][x] == MAP_HERO){
 				HERO.x = x * IMGSIZE;
 				HERO.y = y * IMGSIZE;
+				SHP = HERO.y - 1700;
 			}
 			if (MAPDATA[y][x] == enemy1){
 				Init_ENEMY1();
