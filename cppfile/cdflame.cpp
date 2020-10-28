@@ -6,11 +6,12 @@ Charadata HERO;
 Charadata ENEMY;
 
 void syokika(){
+	scrolly = 0;
+	InitStage(HERO.StageNum);
 	HERO.attacktype = red;
 	HERO.LIFE = 3;
-	HERO.movement = 1;
+	HERO.movement = 2;
 	HERO.type = bullet;
-	HERO.scrolly = 0;
 	for (int i = 0; i < bullet_count; i++){
 		HERO.BULLET[i].living = FALSE;
 	}

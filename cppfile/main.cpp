@@ -51,6 +51,7 @@ void DrawTitle(){
 
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	if (KeyChecker(key) == TRUE){
+		syokika();
 		gametype = GAME_MAIN;
 		InitStage(1);
 		SetGraphMode(gamemainsize_x, gamemainsize_y, 32);
@@ -73,6 +74,7 @@ void DrawGameOver(){
 	DrawStringToHandle(200, 250, "âEÇâüÇ∑Ç∆ÉQÅ[ÉÄèIóπ", GetColor(255, 255, 255), largefont, 32, FALSE);
 
 	if (CheckHitKey(KEY_INPUT_LEFT) == TRUE){
+		
 		gametype = GAME_MAIN;
 		SetGraphMode(gamemainsize_x, gamemainsize_y, 32);
 		IMGhandle();
@@ -84,7 +86,7 @@ void DrawGameOver(){
 
 }
 void DrawGameClear(){
-
+	
 }
 int KeyChecker(int key){
 	if (key & PAD_INPUT_A){

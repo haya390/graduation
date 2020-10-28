@@ -22,7 +22,6 @@ void InitStage(int i){
 		for (int x = 0; x < MAPWIDTH; x++){
 			MAPDATA[y][x] = (int)(buf[x] - '0');
 			if (MAPDATA[y][x] == MAP_HERO){
-				syokika();
 				HERO.x = x * IMGSIZE;
 				HERO.y = y * IMGSIZE;
 			}
@@ -34,15 +33,15 @@ void InitStage(int i){
 
 void gamemain(){
 
-	move();
 	DrawMap();
+	move();
 
 }
 
 void DrawMap(){
 	if (IMG_FLAME_RATE == 11) IMG_FLAME_RATE = 0;
 
-	int sc = (int)(HERO.scrolly / IMGSIZE);
+	
 
 	for (int y = 0; y < MAPHEIGHT; y++){
 		for (int x = 0; x < MAPWIDTH; x++){
@@ -50,7 +49,7 @@ void DrawMap(){
 			switch (MAPDATA[y][x])
 			{
 			case field:
-				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1700, G_IMGhandle[field][0], TRUE);
+				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1700 + scrolly, G_IMGhandle[field][0], TRUE);
 				break;
 			case enemy1:
 				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1700, G_IMGhandle[enemy1][IMG_FLAME_RATE], TRUE);
