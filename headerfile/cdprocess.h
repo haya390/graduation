@@ -7,4 +7,6 @@
 
 void move();
 
+extern float scrolly;
+
 #endif

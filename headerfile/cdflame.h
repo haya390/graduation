@@ -28,9 +28,8 @@ struct Charadata{
 	int attacktype;/*属性*/
 	int type;/*実弾/ビーム*/
 	BOOL living;/*存在証明*/
-	Data BULLET[20];
-	float scrolly;
-
+	Data BULLET[20];/*自機/敵機の弾*/
+	int StageNum;/*コンティニューする際のステージナンバーの記録*/
 };
 
 extern Charadata HERO;
