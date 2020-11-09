@@ -11,6 +11,7 @@ int MAPDATA[MAPHEIGHT][MAPWIDTH];
 int hx, hy;
 int i = 0;
 int IMG_FLAME_RATE = 0;
+int IMG_TYPE_FLAG = 0;
 int SHP;
 
 void InitStage(int i){
@@ -46,13 +47,28 @@ void gamemain(){
 
 	DrawMap();
 	move();
+	
+	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
+	if (key & PAD_INPUT_2){
+		if (HERO.type == beam){
+			HERO.type = red;
+			IMG_TYPE_FLAG=0;
+		}
+		else{
+			HERO.type++;
+			IMG_TYPE_FLAG++;
+		}
 
+	}
+
+	
+
+	clsDx();
+	printfDx("Yé≤:%f\nXé≤:%f\nÉXÉNÉçÅ[Éãó :%f", HERO.y, HERO.x,scrolly);
 }
 
 void DrawMap(){
 	if (IMG_FLAME_RATE == 11) IMG_FLAME_RATE = 0;
-
-	
 
 	for (int y = 0; y < MAPHEIGHT; y++){
 		for (int x = 0; x < MAPWIDTH; x++){
@@ -72,7 +88,7 @@ void DrawMap(){
 				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1700, G_IMGhandle[enemy3][IMG_FLAME_RATE], TRUE);
 				break;
 			case player:
-				DrawGraph(HERO.x, HERO.y - 1700, gif[IMG_FLAME_RATE], TRUE);
+				DrawGraph(HERO.x, HERO.y - 1800 + scrolly, gif[IMG_TYPE_FLAG][IMG_FLAME_RATE], TRUE);
 				break;
 			}
 		}

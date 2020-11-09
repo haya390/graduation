@@ -9,28 +9,31 @@ void move(){
 
 	float hy = HERO.y - 1700;
 
-	
-	
 
-	if (key & PAD_INPUT_UP && CheckEnd(1) == TRUE){
-		HERO.y -= HERO.movement;
-		scrolly += HERO.movement;
-	}
-	if (key & PAD_INPUT_DOWN && CheckEnd(2) == TRUE){
-		HERO.y += HERO.movement;
-		if (HERO.y < 2450){
-			scrolly -= HERO.movement;
+	if ((HERO.y - HERO.movement) >= 0){
+
+		if (key & PAD_INPUT_UP && CheckEnd(1) == TRUE){
+			HERO.y -= HERO.movement;
+			CheckScroll(TRUE);
+			if (HERO.SF == TRUE){
+				scrolly += HERO.movement;
+			}
 		}
-	}
-	if (key & PAD_INPUT_LEFT && CheckEnd(3) == TRUE){
-		HERO.x -= HERO.movement;
-	}
-	if (key & PAD_INPUT_RIGHT && CheckEnd(4) == TRUE){
-		HERO.x += HERO.movement;
-	}
+		if (key & PAD_INPUT_DOWN && CheckEnd(2) == TRUE){
+			HERO.y += HERO.movement;
+			CheckScroll(FALSE);
+			if (HERO.SF == TRUE){
+				scrolly -= HERO.movement;
+			}
+		}
+		if (key & PAD_INPUT_LEFT && CheckEnd(3) == TRUE){
+			HERO.x -= HERO.movement;
+		}
+		if (key & PAD_INPUT_RIGHT && CheckEnd(4) == TRUE){
+			HERO.x += HERO.movement;
+		}
 
-
-
+	}
 }
 
 BOOL CheckEnd(int i){
@@ -38,18 +41,37 @@ BOOL CheckEnd(int i){
 	switch (i)
 	{
 	case 1:
-		if ((HERO.y - SHP) > 800)return TRUE;
+		if (HERO.y - HERO.movement >= 0)return TRUE;
 		break;
 	case 2:
-		if ((HERO.y + IMGSIZE) < 2500)return TRUE;
+		if ((HERO.y + IMGSIZE + HERO.movement) <= 2500)return TRUE;
 		break;
 	case 3:
-		if (HERO.x > 0)return TRUE;
+		if (HERO.x - HERO.movement > 0)return TRUE;
 		break;
 	case 4:
-		if ((HERO.x + IMGSIZE) < 600)return TRUE;
+		if ((HERO.x + IMGSIZE + HERO.movement) < 600)return TRUE;
 		break;
 	}
 
 	return FALSE;
+	
+}
+void CheckScroll(BOOL flag){
+	
+	
+	
+}
+void DrawBullet(int flag,int i){
+	switch (flag)
+	{
+	case 1:
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+	case 4:
+		break;
+	}
 }
