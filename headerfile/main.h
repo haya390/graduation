@@ -16,6 +16,9 @@ void DrawTitle();
 void DrawGameMain();
 void DrawGameOver();
 void DrawGameClear();
-int keyChecker(int);
+int keychecker_z(int);
+int keychecker_b(int);
+
+extern int gamemainsize_y;
 
 #endif

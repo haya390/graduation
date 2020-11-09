@@ -5,19 +5,17 @@
 #include<stdio.h>
 #include"cdprocess.h"
 
-enum attacktype{
-	red = 1, blue = 2, green = 3
-};
-enum type{
-	bullet = 1/*実弾*/,beam = 2
+enum ATKtype{
+	red = 1, blue = 2, green = 3, beam = 4
 };
 
 struct Data{
 	float x; /*横軸*/
 	float y; /*縦軸*/
 	BOOL living; /*存在証明*/
-	int type; /*実弾/ビーム*/
+	int type; /*属性の切り替え*/
 	float movement; /*移動量*/
+	int BULLET_IMAGE[5];
 };
 
 struct Charadata{
@@ -25,8 +23,8 @@ struct Charadata{
 	float y;/*縦軸*/
 	int LIFE;/*最大被弾回数*/
 	float movement;/*移動量*/
-	int attacktype;/*属性*/
-	int type;/*実弾/ビーム*/
+	BOOL SF;/*スクロール可否*/
+	int type;/*属性の切り替え*/
 	BOOL living;/*存在証明*/
 	Data BULLET[20];/*自機/敵機の弾*/
 	int StageNum;/*コンティニューする際のステージナンバーの記録*/
@@ -42,5 +40,6 @@ void syokika();
 void Init_ENEMY1();
 void Init_ENEMY2();
 void Init_ENEMY3();
+int SET_PLAYER_BULLET();
 
 #endif
