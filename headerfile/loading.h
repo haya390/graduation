@@ -9,8 +9,9 @@ enum youso
 };
 
 extern int G_IMGhandle[10][13];
-extern int gif[3][12];
+extern int gif[4][12];
 extern int TITLE;
+extern int BULLET[4];
 
 BOOL IMGhandle();
 BOOL InitBulletImage(int);

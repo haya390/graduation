@@ -5,6 +5,10 @@
 #include"gamemain.h"
 #include"cdflame.h"
 
+enum hanbetu{
+	P, E
+};
+
 void move();
 BOOL CheckEnd(int);
 void CheckScroll(BOOL);
