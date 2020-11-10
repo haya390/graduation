@@ -17,11 +17,11 @@ int g_timestart = 0;
 int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 	SetWindowSizeChangeEnableFlag(TRUE);
 	ChangeWindowMode(TRUE);
-	SetGraphMode(monitorsize_x, monitorsize_y, 32);
-	if (DxLib_Init() == -1)return -1;
-	if (IMGhandle() == FALSE)return FALSE;
 	SetWindowText("Trinity");
 	SetDrawScreen(DX_SCREEN_BACK);
+	SetGraphMode(monitorsize_x, monitorsize_y, 32);
+	if (DxLib_Init() == -1)return -1;
+	if (IMGhandle() == -1)return -1;
 
 
 
@@ -48,8 +48,6 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 	return 0;
 }
 void DrawTitle(){
-	SetGraphMode(monitorsize_x, monitorsize_y, 32);
-	IMGhandle();
 
 	DrawExtendGraph(0,0,monitorsize_x,monitorsize_y,TITLE,TRUE);
 

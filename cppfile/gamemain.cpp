@@ -44,15 +44,19 @@ void InitStage(int i){
 }
 
 void gamemain(){
-
 	DrawMap();
 	move();
+	SET_PLAYER_BULLET();
+	for (int i = 0; HERO.BULLET[i].living == TRUE; i++){
+		DrawBullet(P, i);
+	}
+
 	
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	if (key & PAD_INPUT_2){
 		if (HERO.type == beam){
 			HERO.type = red;
-			IMG_TYPE_FLAG=0;
+			IMG_TYPE_FLAG = 0;
 		}
 		else{
 			HERO.type++;

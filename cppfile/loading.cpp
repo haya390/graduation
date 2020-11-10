@@ -3,8 +3,9 @@
 #include<string.h>
 
 int G_IMGhandle[10][13];
-int gif[3][12];
+int gif[4][12];
 int TITLE;
+int BULLET[4];
 
 BOOL IMGhandle(){
 
@@ -14,6 +15,15 @@ BOOL IMGhandle(){
 	TITLE = LoadGraph("media\\タイトル.png");
 	if (TITLE == -1)return FALSE;
 
+
+	BULLET[0] = LoadGraph("media\\弾\\属性弾(赤) 候補1.png");
+	if (BULLET[0] == -1)return FALSE;
+	BULLET[1] = LoadGraph("media\\弾\\属性弾(青) 候補3.png");
+	if (BULLET[1] == -1)return FALSE;
+	BULLET[2] = LoadGraph("media\\弾\\属性弾(緑) 候補1.png");
+	if (BULLET[2] == -1)return FALSE;
+	BULLET[3] = LoadGraph("media\\弾\\レーザー 自機専用.png");
+	if (BULLET[3] == -1)return FALSE;
 
 
 	for (int i = 0 , soeji = 1; i < 13; i++,soeji++){
@@ -34,6 +44,7 @@ BOOL IMGhandle(){
 	LoadDivGraph("media\\img_sub\\R.png",12,6,2,55,55,gif[0]);
 	LoadDivGraph("media\\img_sub\\B.png", 12, 6, 2, 55, 55, gif[1]);
 	LoadDivGraph("media\\img_sub\\G.png", 12, 6, 2, 55, 55, gif[2]);
+	LoadDivGraph("media\\img_sub\\L.png", 12, 12, 1, 55, 55, gif[3]);
 
 	return TRUE;
 }
@@ -41,12 +52,16 @@ BOOL InitBulletImage(int i){
 	switch (HERO.type)
 	{
 	case red:
+		HERO.BULLET[i].BULLET_IMAGE[0] = BULLET[0];
 		break;
 	case blue:
+		HERO.BULLET[i].BULLET_IMAGE[1] = BULLET[1];
 		break;
 	case green:
+		HERO.BULLET[i].BULLET_IMAGE[2] = BULLET[2];
 		break;
 	case beam:
+		HERO.BULLET[i].BULLET_IMAGE[3] = BULLET[3];
 		break;
 	}
 

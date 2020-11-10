@@ -63,15 +63,24 @@ void CheckScroll(BOOL flag){
 	
 }
 void DrawBullet(int flag,int i){
-	switch (flag)
-	{
-	case 1:
-		break;
-	case 2:
-		break;
-	case 3:
-		break;
-	case 4:
-		break;
+	if (flag == E){
+
+	}else if (flag == P){
+		switch (HERO.BULLET[i].type)
+		{
+		case red:
+			DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y, HERO.BULLET[i].BULLET_IMAGE[0], TRUE);
+			break;
+		case blue:
+			DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y, HERO.BULLET[i].BULLET_IMAGE[1], TRUE);
+			break;
+		case green:
+			DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y, HERO.BULLET[i].BULLET_IMAGE[2], TRUE);
+			break;
+		case beam:
+			DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y, HERO.BULLET[i].BULLET_IMAGE[3], TRUE);
+			break;
+		}
 	}
+
 }

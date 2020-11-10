@@ -38,13 +38,18 @@ int SET_PLAYER_BULLET(){
 		int time_a = GetNowCount();
 
 		limit = GetNowCount() - time_a;
-		for (int i = 0; i < (limit / 500) && HERO.BULLET[i].living == FALSE; i++){
-			HERO.BULLET[i].living = TRUE;
-			HERO.BULLET[i].x = HERO.x;
-			HERO.BULLET[i].y = HERO.y;
-			HERO.BULLET[i].type = HERO.type;
-			HERO.BULLET[i].movement = 7;
-			InitBulletImage(i);
+		for (int i = 0; i < (limit / 500); i++){
+			if (HERO.BULLET[i].living == FALSE){
+				HERO.BULLET[i].living = TRUE;
+				HERO.BULLET[i].x = HERO.x;
+				HERO.BULLET[i].y = HERO.y;
+				HERO.BULLET[i].type = HERO.type;
+				HERO.BULLET[i].movement = 7;
+				InitBulletImage(i);
+			}
+			else{
+
+			}
 		}
 	}
 	return limit;
