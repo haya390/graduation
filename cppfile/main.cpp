@@ -73,6 +73,8 @@ void DrawGameMain(){
 	gamemain();
 }
 void DrawGameOver(){
+	clsDx();
+
 	int largefont = CreateFontToHandle("ƒƒCƒŠƒI", 42, -1, DX_FONTTYPE_NORMAL);
 	int Timecount = GetNowCount();
 
@@ -90,6 +92,7 @@ void DrawGameOver(){
 	if (Timecount - g_timestart > 5000){
 		gametype = GAME_TITLE;
 		SetGraphMode(monitorsize_x, monitorsize_y, 32);
+		IMGhandle();
 	}
 
 }
