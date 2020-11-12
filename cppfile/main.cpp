@@ -10,7 +10,9 @@ int gamemainsize_y = 800;
 int gametype = GAME_TITLE;
 BOOL g_akey_prev = FALSE;
 
+int timer;
 
+int largefont = CreateFontToHandle("メイリオ", 42, -1, DX_FONTTYPE_NORMAL);
 
 int g_timestart = 0;
 
@@ -42,6 +44,7 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 			DrawGameClear();
 			break;
 		}
+		timer = GetNowCount();
 		ScreenFlip();
 	}
 	DxLib_End();
@@ -75,7 +78,6 @@ void DrawGameMain(){
 void DrawGameOver(){
 	clsDx();
 
-	int largefont = CreateFontToHandle("メイリオ", 42, -1, DX_FONTTYPE_NORMAL);
 	int Timecount = GetNowCount();
 
 	DrawStringToHandle(200, 200, "左を押すとコンティニュー", GetColor(255, 255, 255), largefont, 32, FALSE);

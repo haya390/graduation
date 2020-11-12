@@ -31,26 +31,41 @@ void Init_ENEMY3(){
 
 
 }
-int SET_PLAYER_BULLET(){
-	int limit = 0;
+void SET_PLAYER_BULLET(){
+
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
-	if (keychecker_z(key) == TRUE){
-		int time_a = GetNowCount();
 
-		limit = GetNowCount() - time_a;
-		for (int i = 0; i < (limit / 500); i++){
+	if (key & PAD_INPUT_A){
+		for (int i = 0; i < 20; i++){
 			if (HERO.BULLET[i].living == FALSE){
-				HERO.BULLET[i].living = TRUE;
-				HERO.BULLET[i].x = HERO.x;
-				HERO.BULLET[i].y = HERO.y;
-				HERO.BULLET[i].type = HERO.type;
-				HERO.BULLET[i].movement = 7;
-				InitBulletImage(i);
-			}
-			else{
+				if (i != 0){
+					if (HERO.BULLET[i - 1].time <= 2){
+						HERO.BULLET[i - 1].time = GetNowCount();
+						break;
+					}
+					HERO.BULLET[i].time = (GetNowCount() - timer) / 1000;
+					HERO.BULLET[i].living = TRUE;
+					HERO.BULLET[i].x = HERO.x;
+					HERO.BULLET[i].y = HERO.y - 150;
+					HERO.BULLET[i].type = HERO.type;
+					HERO.BULLET[i].movement = 7;
+					InitBulletImage(i);
+					break;
+				}else{
+					HERO.BULLET[i].time = (GetNowCount() - timer) / 1000;
+					HERO.BULLET[i].living = TRUE;
+					HERO.BULLET[i].x = HERO.x;
+					HERO.BULLET[i].y = HERO.y - 150;
+					HERO.BULLET[i].type = HERO.type;
+					HERO.BULLET[i].movement = 7;
+					InitBulletImage(i);
+					break;
+				}
 
+			}else{
+				
 			}
 		}
+
 	}
-	return limit;
 }

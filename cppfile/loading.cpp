@@ -52,16 +52,16 @@ BOOL InitBulletImage(int i){
 	switch (HERO.type)
 	{
 	case red:
-		HERO.BULLET[i].BULLET_IMAGE[0] = BULLET[0];
+		HERO.BULLET[i].BULLET_IMAGE = BULLET[0];
 		break;
 	case blue:
-		HERO.BULLET[i].BULLET_IMAGE[1] = BULLET[1];
+		HERO.BULLET[i].BULLET_IMAGE = BULLET[1];
 		break;
 	case green:
-		HERO.BULLET[i].BULLET_IMAGE[2] = BULLET[2];
+		HERO.BULLET[i].BULLET_IMAGE = BULLET[2];
 		break;
 	case beam:
-		HERO.BULLET[i].BULLET_IMAGE[3] = BULLET[3];
+		HERO.BULLET[i].BULLET_IMAGE = BULLET[3];
 		break;
 	}
 
