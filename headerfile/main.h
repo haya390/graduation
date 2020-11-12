@@ -20,5 +20,6 @@ int keychecker_z(int);
 int keychecker_b(int);
 
 extern int gamemainsize_y;
+extern int timer;
 
 #endif

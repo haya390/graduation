@@ -15,7 +15,8 @@ struct Data{
 	BOOL living; /*存在証明*/
 	int type; /*属性の切り替え*/
 	float movement; /*移動量*/
-	int BULLET_IMAGE[5];
+	int BULLET_IMAGE;
+	int time;/*クールタイム*/
 };
 
 struct Charadata{
@@ -40,6 +41,6 @@ void syokika();
 void Init_ENEMY1();
 void Init_ENEMY2();
 void Init_ENEMY3();
-int SET_PLAYER_BULLET();
+void SET_PLAYER_BULLET();
 
 #endif
