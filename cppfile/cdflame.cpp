@@ -39,7 +39,8 @@ void SET_PLAYER_BULLET(){
 		for (int i = 0; i < 20; i++){
 			if (HERO.BULLET[i].living == FALSE){
 				if (i != 0){
-					if (HERO.BULLET[i - 1].time <= 2){
+					int Tseigyo = HERO.BULLET[i].time - HERO.BULLET[i - 1].time;
+					if (Tseigyo <= 10){
 						HERO.BULLET[i - 1].time = GetNowCount();
 						break;
 					}

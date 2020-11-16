@@ -62,32 +62,34 @@ void CheckScroll(BOOL flag){
 	
 	
 }
-void DrawBullet(int flag,int i){
-
+void DrawBullet(int flag){
 	int largefont = CreateFontToHandle("ƒƒCƒŠƒI", 42, -1, DX_FONTTYPE_NORMAL);
 
 	if (flag == E){
 
 	}else if (flag == P){
-		switch (HERO.BULLET[i].type)
-		{
-		case red:
-			DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1700 , HERO.BULLET[i].BULLET_IMAGE, TRUE);
-			break;
-		case blue:
-			DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1700, HERO.BULLET[i].BULLET_IMAGE, TRUE);
-			break;
-		case green:
-			DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1700, HERO.BULLET[i].BULLET_IMAGE, TRUE);
-			break;
-		case beam:
-			DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1700, HERO.BULLET[i].BULLET_IMAGE, TRUE);
-			break;
-		}
-		if (HERO.BULLET[i].y > (HERO.y + 100) || (HERO.y - gamemainsize_y) > HERO.BULLET[i].y){
-			HERO.BULLET[i].living = FALSE;
-		}else{
-			HERO.BULLET[i].y -= HERO.BULLET[i].movement;
+		for (int i = 0; HERO.BULLET[i].living == TRUE; i++){
+			switch (HERO.BULLET[i].type)
+			{
+			case red:
+				DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1700, HERO.BULLET[i].BULLET_IMAGE, TRUE);
+				break;
+			case blue:
+				DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1700, HERO.BULLET[i].BULLET_IMAGE, TRUE);
+				break;
+			case green:
+				DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1700, HERO.BULLET[i].BULLET_IMAGE, TRUE);
+				break;
+			case beam:
+				DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1700, HERO.BULLET[i].BULLET_IMAGE, TRUE);
+				break;
+			}
+			if (HERO.BULLET[i].y > (HERO.y + 100) || (HERO.y - gamemainsize_y) > HERO.BULLET[i].y){
+				HERO.BULLET[i].living = FALSE;
+			}
+			else{
+				HERO.BULLET[i].y -= HERO.BULLET[i].movement;
+			}
 		}
 	}
 	

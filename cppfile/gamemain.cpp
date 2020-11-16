@@ -47,9 +47,7 @@ void gamemain(){
 	DrawMap();
 	move();
 	SET_PLAYER_BULLET();
-	for (int i = 0; HERO.BULLET[i].living == TRUE; i++){
-		DrawBullet(P, i);
-	}
+	DrawBullet(P);
 
 	
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
