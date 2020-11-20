@@ -4,7 +4,7 @@
 int monitorsize_x = 960;
 int monitorsize_y = 840;
 
-int gamemainsize_x = 600;
+int gamemainsize_x = 715;
 int gamemainsize_y = 800;
 
 int gametype = GAME_TITLE;
@@ -25,7 +25,7 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 	if (DxLib_Init() == -1)return -1;
 	if (IMGhandle() == -1)return -1;
 
-
+	timer = GetNowCount() / 1000;
 
 	while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0){
 		ClearDrawScreen();
@@ -44,7 +44,6 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 			DrawGameClear();
 			break;
 		}
-		timer = GetNowCount();
 		ScreenFlip();
 	}
 	DxLib_End();

@@ -29,13 +29,16 @@ void InitStage(int i){
 				SHP = HERO.y - 1700;
 			}
 			if (MAPDATA[y][x] == enemy1){
-				Init_ENEMY1();
+				Init_ENEMY1(x,y);
 			}
 			if (MAPDATA[y][x] == enemy2){
-				Init_ENEMY2();
+				Init_ENEMY2(x, y);
 			}
 			if (MAPDATA[y][x] == enemy3){
-				Init_ENEMY3();
+				Init_ENEMY3(x, y);
+			}
+			if (MAPDATA[y][x] == boss){
+				Init_BOSS(i,x, y);
 			}
 		}
 	}
@@ -46,6 +49,11 @@ void InitStage(int i){
 void gamemain(){
 	DrawMap();
 	move();
+
+	/*
+
+	*/
+
 	SET_PLAYER_BULLET();
 	DrawBullet(P);
 
@@ -64,9 +72,10 @@ void gamemain(){
 	}
 
 	
+	
 
 	clsDx();
-	printfDx("Y軸:%f\nX軸:%f\nスクロール量:%f", HERO.y, HERO.x,scrolly);
+	printfDx("Y軸:%f\nX軸:%f\nスクロール量:%f\n時間:%d", HERO.y, HERO.x,scrolly, GetNowCount() / 1000 - timer);
 }
 
 void DrawMap(){
@@ -78,19 +87,22 @@ void DrawMap(){
 			switch (MAPDATA[y][x])
 			{
 			case field:
-				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1700 + scrolly, G_IMGhandle[field][0], TRUE);
+				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1950 + scrolly, G_IMGhandle[field][0], TRUE);
 				break;
 			case enemy1:
-				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1700, G_IMGhandle[enemy1][IMG_FLAME_RATE], TRUE);
+				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1950, G_IMGhandle[enemy1][IMG_FLAME_RATE], TRUE);
 				break;
 			case enemy2:
-				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1700, G_IMGhandle[enemy2][IMG_FLAME_RATE], TRUE);
+				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1950, G_IMGhandle[enemy2][IMG_FLAME_RATE], TRUE);
 				break;
 			case enemy3:
-				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1700, G_IMGhandle[enemy3][IMG_FLAME_RATE], TRUE);
+				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1950, G_IMGhandle[enemy3][IMG_FLAME_RATE], TRUE);
 				break;
 			case player:
-				DrawGraph(HERO.x, HERO.y - 1800 + scrolly, gif[IMG_TYPE_FLAG][IMG_FLAME_RATE], TRUE);
+				DrawGraph(HERO.x, HERO.y - 1950 + scrolly, HERO.IMGH[IMG_TYPE_FLAG][IMG_FLAME_RATE], TRUE);
+				break;
+			case boss:
+				DrawExtendGraph(STAGEBOSS.x, STAGEBOSS.y, 55, 55, STAGEBOSS.IMG1[0],TRUE);
 				break;
 			}
 		}

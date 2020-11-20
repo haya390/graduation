@@ -50,7 +50,7 @@ BOOL CheckEnd(int i){
 		if (HERO.x - HERO.movement > 0)return TRUE;
 		break;
 	case 4:
-		if ((HERO.x + IMGSIZE + HERO.movement) < 600)return TRUE;
+		if ((HERO.x + IMGSIZE + HERO.movement) < 715)return TRUE;
 		break;
 	}
 
@@ -72,22 +72,22 @@ void DrawBullet(int flag){
 			switch (HERO.BULLET[i].type)
 			{
 			case red:
-				DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1700, HERO.BULLET[i].BULLET_IMAGE, TRUE);
+				DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1950, HERO.BULLET[i].BULLET_IMAGE, TRUE);
 				break;
 			case blue:
-				DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1700, HERO.BULLET[i].BULLET_IMAGE, TRUE);
+				DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1950, HERO.BULLET[i].BULLET_IMAGE, TRUE);
 				break;
 			case green:
-				DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1700, HERO.BULLET[i].BULLET_IMAGE, TRUE);
+				DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1950, HERO.BULLET[i].BULLET_IMAGE, TRUE);
 				break;
 			case beam:
-				DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1700, HERO.BULLET[i].BULLET_IMAGE, TRUE);
+				DrawExtendGraph(HERO.BULLET[i].x,HERO.BULLET[i].y - 1950,HERO.BULLET[i].x + IMGSIZE,HERO.BULLET[i].y - 1950 + IMGSIZE,HERO.BULLET[i].BULLET_IMAGE,TRUE);
 				break;
 			}
-			if (HERO.BULLET[i].y > (HERO.y + 100) || (HERO.y - gamemainsize_y) > HERO.BULLET[i].y){
+			if (HERO.BULLET[i].y + IMGSIZE <= (HERO.y + 110 - gamemainsize_y)){
 				HERO.BULLET[i].living = FALSE;
 			}
-			else{
+			if(HERO.BULLET[i].living == TRUE){
 				HERO.BULLET[i].y -= HERO.BULLET[i].movement;
 			}
 		}

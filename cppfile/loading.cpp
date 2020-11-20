@@ -3,19 +3,23 @@
 #include<string.h>
 
 int G_IMGhandle[10][13];
-int gif[4][12];
 int TITLE;
 int BULLET[4];
+
+Charadata HERO;
+CharaData ENEMY[10];
+CharaData STAGEBOSS;
 
 BOOL IMGhandle(){
 
 	G_IMGhandle[field][0] = LoadGraph("media\\背景(お試し仕様).png");
 	if (G_IMGhandle[field][0] == -1)return FALSE;
 
+	/*タイトル画像の読み込み*/
 	TITLE = LoadGraph("media\\タイトル.png");
 	if (TITLE == -1)return FALSE;
 
-
+	/*弾の読み込み*/
 	BULLET[0] = LoadGraph("media\\弾\\属性弾(赤) 候補1.png");
 	if (BULLET[0] == -1)return FALSE;
 	BULLET[1] = LoadGraph("media\\弾\\属性弾(青) 候補3.png");
@@ -25,7 +29,7 @@ BOOL IMGhandle(){
 	BULLET[3] = LoadGraph("media\\弾\\レーザー 自機専用.png");
 	if (BULLET[3] == -1)return FALSE;
 
-
+	/*敵機の画像読み込み（雑魚）*/
 	for (int i = 0 , soeji = 1; i < 13; i++,soeji++){
 		
 		char red[50], blue[50], green[50];
@@ -41,10 +45,19 @@ BOOL IMGhandle(){
 		if (G_IMGhandle[enemy3][i] == -1)return FALSE;
 	}
 
-	LoadDivGraph("media\\img_sub\\R.png",12,6,2,55,55,gif[0]);
-	LoadDivGraph("media\\img_sub\\B.png", 12, 6, 2, 55, 55, gif[1]);
-	LoadDivGraph("media\\img_sub\\G.png", 12, 6, 2, 55, 55, gif[2]);
-	LoadDivGraph("media\\img_sub\\L.png", 12, 12, 1, 55, 55, gif[3]);
+	/*ボスの画像読み込み*/
+	STAGEBOSS.IMG1[0] = LoadGraph("media\\enemy_img\\STBF.png");
+	STAGEBOSS.IMG1[1] = LoadGraph("media\\enemy_img\\STBFS.png");
+	STAGEBOSS.IMG2[0] = LoadGraph("media\\enemy_img\\ST1B0.png");
+	STAGEBOSS.IMG2[1] = LoadGraph("media\\enemy_img\\ST1B1.png");
+	STAGEBOSS.IMG2[2] = LoadGraph("media\\enemy_img\\ST1B2.png");
+	STAGEBOSS.IMG2[3] = LoadGraph("media\\enemy_img\\ST1B3.png");
+
+	/*自機の画像読み込み*/
+	LoadDivGraph("media\\img_sub\\R.png", 12, 6, 2, 55, 55, HERO.IMGH[0]);
+	LoadDivGraph("media\\img_sub\\B.png", 12, 6, 2, 55, 55, HERO.IMGH[1]);
+	LoadDivGraph("media\\img_sub\\G.png", 12, 6, 2, 55, 55, HERO.IMGH[2]);
+	LoadDivGraph("media\\img_sub\\L.png", 12, 12, 1, 55, 55, HERO.IMGH[3]);
 
 	return TRUE;
 }
