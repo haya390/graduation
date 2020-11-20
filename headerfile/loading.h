@@ -5,11 +5,12 @@
 
 enum youso
 {
-	field,enemy1,enemy2,enemy3,player
+	field,enemy1,enemy2,enemy3,player,boss
 };
 
 extern int G_IMGhandle[10][13];
 extern int gif[4][12];
+extern int BOSS;
 extern int TITLE;
 extern int BULLET[4];
 

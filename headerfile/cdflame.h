@@ -15,7 +15,7 @@ struct Data{
 	BOOL living; /*存在証明*/
 	int type; /*属性の切り替え*/
 	float movement; /*移動量*/
-	int BULLET_IMAGE;
+	int BULLET_IMAGE;/*弾の画像*/
 	int time;/*クールタイム*/
 };
 
@@ -29,18 +29,33 @@ struct Charadata{
 	BOOL living;/*存在証明*/
 	Data BULLET[20];/*自機/敵機の弾*/
 	int StageNum;/*コンティニューする際のステージナンバーの記録*/
+	int IMGH[4][12];/*自機の画像*/
+};
+
+struct CharaData{
+	float x;/*横軸*/
+	float y;/*縦軸*/
+	int LIFE;/*最大被弾回数*/
+	float movement;/*移動量*/
+	int type;/*属性の切り替え*/
+	BOOL living;/*存在証明*/
+	Data BULLET[20];/*自機/敵機の弾*/
+	int IMG1[2];/*雑魚的の画像もしくはボスの前部分専用*/
+	int IMG2[4];/*ボスの後ろ部分専用*/
 };
 
 extern Charadata HERO;
-extern Charadata ENEMY;
+extern CharaData ENEMY[10];
+extern CharaData STAGEBOSS;
 
 extern int hx,ex;
 extern int hy,ey;
 
 void syokika();
-void Init_ENEMY1();
-void Init_ENEMY2();
-void Init_ENEMY3();
+void Init_ENEMY1(int,int);
+void Init_ENEMY2(int, int);
+void Init_ENEMY3(int, int);
+void Init_BOSS(int, int, int);
 void SET_PLAYER_BULLET();
 
 #endif

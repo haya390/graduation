@@ -17,7 +17,7 @@ void InitStage(int);
 
 #define MAPWIDTH 12 /*幅*/
 #define MAPHEIGHT 50 /*高さ*/
-#define IMGSIZE 50/*画像サイズ*/
+#define IMGSIZE 55/*画像サイズ*/
 
 extern int MAPDATA[MAPHEIGHT][MAPWIDTH];
 extern int SHP;/*自機初期位置*/
