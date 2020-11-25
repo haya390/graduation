@@ -1,1 +1,36 @@
-a
+void move(){
+	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
+	int aa = timer;
+	float hy = HERO.y - 1700;
+	aa += 1;
+	if (timer < aa)
+	{
+		scrolly += 1;
+	}
+
+
+	if ((HERO.y - HERO.movement) >= 0){
+
+		if (key & PAD_INPUT_UP && CheckEnd(1) == TRUE){
+			HERO.y -= HERO.movement;
+		
+			if (HERO.SF == TRUE){
+
+			}
+		}
+		if (key & PAD_INPUT_DOWN && CheckEnd(2) == TRUE){
+			HERO.y += HERO.movement;
+			
+			if (HERO.SF == TRUE){
+		
+			}
+		}
+		if (key & PAD_INPUT_LEFT && CheckEnd(3) == TRUE){
+			HERO.x -= HERO.movement;
+		}
+		if (key & PAD_INPUT_RIGHT && CheckEnd(4) == TRUE){
+			HERO.x += HERO.movement;
+		}
+
+	}
+}
