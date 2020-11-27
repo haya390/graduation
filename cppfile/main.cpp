@@ -79,8 +79,10 @@ void DrawGameOver(){
 
 	int Timecount = GetNowCount();
 
-	DrawStringToHandle(200, 200, "左を押すとコンティニュー", GetColor(255, 255, 255), largefont, 32, FALSE);
-	DrawStringToHandle(200, 250, "右を押すとゲーム終了", GetColor(255, 255, 255), largefont, 32, FALSE);
+	DrawExtendGraph(0, 0, monitorsize_x, monitorsize_y, GAMEOVER, TRUE);
+
+	/*DrawStringToHandle(200, 200, "左を押すとコンティニュー", GetColor(255, 255, 255), largefont, 32, FALSE);
+	DrawStringToHandle(200, 250, "右を押すとゲーム終了", GetColor(255, 255, 255), largefont, 32, FALSE);*/
 
 	if (CheckHitKey(KEY_INPUT_LEFT) == TRUE){
 		gametype = GAME_MAIN;

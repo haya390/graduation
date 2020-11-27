@@ -4,6 +4,8 @@
 
 int G_IMGhandle[10][13];
 int TITLE;
+int GAMEOVER;
+int field;
 int BULLET[4];
 
 Charadata HERO;
@@ -12,12 +14,17 @@ CharaData STAGEBOSS;
 
 BOOL IMGhandle(){
 
-	G_IMGhandle[field][0] = LoadGraph("media\\背景(お試し仕様).png");
-	if (G_IMGhandle[field][0] == -1)return FALSE;
+	
 
 	/*タイトル画像の読み込み*/
 	TITLE = LoadGraph("media\\タイトル.png");
 	if (TITLE == -1)return FALSE;
+
+	/*ゲーム本編の背景画像*/
+	field = LoadGraph("media\\背景(ステージ1).png");
+
+	/*ゲームオーバー画像の読み込み*/
+	GAMEOVER = LoadGraph("media\\ゲームオーバー画面.png");
 
 	/*弾の読み込み*/
 	BULLET[0] = LoadGraph("media\\弾\\属性弾(赤) 候補1.png");

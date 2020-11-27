@@ -18,31 +18,31 @@ void InitStage(int i){
 	char buf[256];
 	sprintf_s(buf, 256, "media\\stage%d.txt",i);
 	int fh = FileRead_open(buf);
-
-	for (int y = 0; y < MAPHEIGHT; y++){
+	int y = 0;
+	for (y = 0; y < MAPHEIGHT; y++){
 		FileRead_gets(buf, 256, fh);
 		for (int x = 0; x < MAPWIDTH; x++){
 			MAPDATA[y][x] = (int)(buf[x] - '0');
 			if (MAPDATA[y][x] == MAP_HERO){
 				HERO.x = x * IMGSIZE;
 				HERO.y = y * IMGSIZE;
-				SHP = HERO.y - 1700;
+				SHP = y;
 			}
 			if (MAPDATA[y][x] == enemy1){
-				Init_ENEMY1(x,y);
+				Init_ENEMY1(i, x, y);
 			}
 			if (MAPDATA[y][x] == enemy2){
-				Init_ENEMY2(x, y);
+				Init_ENEMY2(i, x, y);
 			}
 			if (MAPDATA[y][x] == enemy3){
-				Init_ENEMY3(x, y);
+				Init_ENEMY3(i, x, y);
 			}
 			if (MAPDATA[y][x] == boss){
 				Init_BOSS(i,x, y);
 			}
 		}
 	}
-	
+	SHP = y - SHP;
 	FileRead_close(fh);
 }
 
@@ -79,6 +79,9 @@ void gamemain(){
 }
 
 void DrawMap(){
+
+	DrawGraph(0, 0 - 1950 + scrolly, field, TRUE);
+
 	if (IMG_FLAME_RATE == 11) IMG_FLAME_RATE = 0;
 
 	for (int y = 0; y < MAPHEIGHT; y++){
@@ -86,9 +89,6 @@ void DrawMap(){
 			
 			switch (MAPDATA[y][x])
 			{
-			case field:
-				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1950 + scrolly, G_IMGhandle[field][0], TRUE);
-				break;
 			case enemy1:
 				DrawGraph(x * IMGSIZE, y * IMGSIZE - 1950, G_IMGhandle[enemy1][IMG_FLAME_RATE], TRUE);
 				break;

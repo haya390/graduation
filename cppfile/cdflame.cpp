@@ -8,24 +8,28 @@ void syokika(){
 	scrolly = 0;
 	InitStage(HERO.StageNum);
 	HERO.LIFE = 3;
-	HERO.SF = TRUE;
 	HERO.movement = 5;
 	HERO.type = red;
 	for (int i = 0; i < bullet_count; i++){
 		HERO.BULLET[i].living = FALSE;
 	}
 }
-void Init_ENEMY1(int x, int y){
+void Init_ENEMY1(int i, int x, int y){
+
+	ENEMY[i].living = TRUE;
+	ENEMY[i].x = x * IMGSIZE;
+	ENEMY[i].y = y * IMGSIZE;
+	ENEMY[i].LIFE = 3;
+	ENEMY[i].type = red;
+	ENEMY[i].enemy_type = red;
+
+}
+void Init_ENEMY2(int i, int x, int y){
 
 
 
 }
-void Init_ENEMY2(int x, int y){
-
-
-
-}
-void Init_ENEMY3(int x, int y){
+void Init_ENEMY3(int i, int x, int y){
 
 
 
