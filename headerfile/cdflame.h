@@ -24,7 +24,8 @@ struct Charadata{
 	float y;/*縦軸*/
 	int LIFE;/*最大被弾回数*/
 	float movement;/*移動量*/
-	BOOL SF;/*スクロール可否*/
+	BOOL ScrollUpper;/*上方向へのスクロール可否*/
+	BOOL ScrollBelow;/*下方向へのスクロール可否*/
 	int type;/*属性の切り替え*/
 	BOOL living;/*存在証明*/
 	Data BULLET[20];/*自機/敵機の弾*/
@@ -33,6 +34,7 @@ struct Charadata{
 };
 
 struct CharaData{
+	int enemy_type;/*1 2 3パターン*/
 	float x;/*横軸*/
 	float y;/*縦軸*/
 	int LIFE;/*最大被弾回数*/
@@ -52,9 +54,9 @@ extern int hx,ex;
 extern int hy,ey;
 
 void syokika();
-void Init_ENEMY1(int,int);
-void Init_ENEMY2(int, int);
-void Init_ENEMY3(int, int);
+void Init_ENEMY1(int, int, int);
+void Init_ENEMY2(int, int, int);
+void Init_ENEMY3(int, int, int);
 void Init_BOSS(int, int, int);
 void SET_PLAYER_BULLET();
 
