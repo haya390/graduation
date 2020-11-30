@@ -17,13 +17,13 @@ void move(){
 
 	if (key & PAD_INPUT_UP && CheckEnd(1) == TRUE){
 		HERO.y -= HERO.movement;
-		scrolly += HERO.movement;
+		CheckScroll(1);
 		
 	}
 	if (key & PAD_INPUT_DOWN && CheckEnd(2) == TRUE){
 		HERO.y += HERO.movement;
-		scrolly -= HERO.movement;
-		
+		CheckScroll(2);
+
 	}
 	if (key & PAD_INPUT_LEFT && CheckEnd(3) == TRUE){
 		HERO.x -= HERO.movement;
@@ -35,10 +35,6 @@ void move(){
 }
 
 BOOL CheckEnd(int i){
-
-	int field_bottom = 2750 - gamemainsize_y;
-	int field_central = 2750 - field_bottom;
-	int field_head = 0;
 
 	switch (i)
 	{
@@ -59,21 +55,34 @@ BOOL CheckEnd(int i){
 	return TRUE;
 	
 }
-void CheckScroll(BOOL flag){
+void CheckScroll(int flag){
+
+	int field_bottom = 2750 - gamemainsize_y;
+	int field_central = 2750 - field_bottom;
+	int field_head = 0;
 	
 	if (HERO.y >= 0 && HERO.y <= 800){
-		HERO.ScrollUpper = TRUE;
-		HERO.ScrollBelow = FALSE;
+		if (flag == 2){
+			scrolly -= HERO.movement;
+		}
 	}
 	if (HERO.y > 800 && HERO.y <= 1950){
-		HERO.ScrollUpper = TRUE;
-		HERO.ScrollBelow = TRUE;
+		if (flag == 1){
+			scrolly += HERO.movement;
+		}
+		else if (flag == 2){
+			scrolly -= HERO.movement;
+		}
 	}
 	if (HERO.y > 1950 && HERO.y <= 2750){
-		HERO.ScrollUpper = FALSE;
-		HERO.ScrollBelow = TRUE;
+		if (flag == 1){
+			scrolly += HERO.movement;
+		}
 	}
 	
+	/*画面外に出ないように補正をかける*/
+
+
 }
 void DrawBullet(int flag){
 	int largefont = CreateFontToHandle("メイリオ", 42, -1, DX_FONTTYPE_NORMAL);
