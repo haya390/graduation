@@ -81,7 +81,7 @@ void CheckScroll(int flag){
 	}
 	
 	/*画面外に出ないように補正をかける*/
-	int aaaaaaaaaaaaaaaaaa;
+
 }
 void DrawBullet(int flag){
 	int largefont = CreateFontToHandle("メイリオ", 42, -1, DX_FONTTYPE_NORMAL);
