@@ -1,0 +1,24 @@
+﻿2020/12/02 11:06:26 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\tsg_student\documents\visual studio 2013\Projects\space_shooting\space_shooting\space_shooting.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt gamemain.cpp loading.cpp
+         loading.cpp
+         gamemain.cpp
+     1>c:\users\tsg_student\documents\visual studio 2013\projects\space_shooting\space_shooting\gamemain.cpp(27): warning C4244: '=' : 'int' から 'float' への変換です。データが失われる可能性があります。
+     1>c:\users\tsg_student\documents\visual studio 2013\projects\space_shooting\space_shooting\gamemain.cpp(28): warning C4244: '=' : 'int' から 'float' への変換です。データが失われる可能性があります。
+     1>c:\users\tsg_student\documents\visual studio 2013\projects\space_shooting\space_shooting\gamemain.cpp(83): warning C4244: '引数' : 'float' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\tsg_student\documents\visual studio 2013\projects\space_shooting\space_shooting\gamemain.cpp(102): warning C4244: '引数' : 'float' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\tsg_student\documents\visual studio 2013\projects\space_shooting\space_shooting\gamemain.cpp(105): warning C4244: '引数' : 'float' から 'int' への変換です。データが失われる可能性があります。
+         コードを生成中...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\tsg_student\documents\visual studio 2013\Projects\space_shooting\Debug\space_shooting.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\tsg_student\documents\visual studio 2013\Projects\space_shooting\Debug\space_shooting.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\tsg_student\documents\visual studio 2013\Projects\space_shooting\Debug\space_shooting.lib" /MACHINE:X86 Debug\cdflame.obj
+         Debug\cdprocess.obj
+         Debug\gamemain.obj
+         Debug\loading.obj
+         Debug\main.obj
+         space_shooting.vcxproj -> C:\Users\tsg_student\documents\visual studio 2013\Projects\space_shooting\Debug\space_shooting.exe
+     1>プロジェクト "C:\Users\tsg_student\documents\visual studio 2013\Projects\space_shooting\space_shooting\space_shooting.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:01.03
