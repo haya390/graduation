@@ -11,7 +11,7 @@ enum hanbetu{
 
 void move();
 BOOL CheckEnd(int);
-void CheckScroll(BOOL);
+void CheckScroll(int);
 void DrawBullet(int);/*1‚ÌŽžŽ©‹@/2‚ÌŽž“G‹@1/3‚ÌŽž“G‹@2/4‚ÌŽž“G‹@3*/
 
 extern float scrolly;
