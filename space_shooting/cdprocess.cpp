@@ -76,12 +76,21 @@ void CheckScroll(int flag){
 	}
 	if (HERO.y > 1950 && HERO.y <= 2750){
 		if (flag == 1){
-			scrolly -= HERO.movement;
+			scrolly += HERO.movement;
 		}
 	}
 	
 	/*画面外に出ないように補正をかける*/
+	if ((HERO.y + scrolly) != 2640 ){
+		if ((HERO.y + scrolly) < 2640){
+			/*画面の上に出ている*/
 
+		}
+		if ((HERO.y + scrolly) > 2640){
+			/*画面の下に出ている*/
+
+		}
+	}
 }
 void DrawBullet(int flag){
 	int largefont = CreateFontToHandle("メイリオ", 42, -1, DX_FONTTYPE_NORMAL);
