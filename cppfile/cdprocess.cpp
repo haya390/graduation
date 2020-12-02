@@ -76,7 +76,7 @@ void CheckScroll(int flag){
 	}
 	if (HERO.y > 1950 && HERO.y <= 2750){
 		if (flag == 1){
-			scrolly += HERO.movement;
+			scrolly -= HERO.movement;
 		}
 	}
 	
