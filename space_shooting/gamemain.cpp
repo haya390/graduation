@@ -82,7 +82,7 @@ void DrawMap(){
 
 	DrawGraph(0, 0 - 1950 + scrolly, field, TRUE);
 
-	if (IMG_FLAME_RATE == 11) IMG_FLAME_RATE = 0;
+	if (GetNowCount() / 1000 - timer > 1)IMG_FLAME_RATE++;
 
 	for (int y = 0; y < MAPHEIGHT; y++){
 		for (int x = 0; x < MAPWIDTH; x++){
@@ -107,5 +107,5 @@ void DrawMap(){
 			}
 		}
 	}
-	IMG_FLAME_RATE++;
+	if (IMG_FLAME_RATE == 11) IMG_FLAME_RATE = 0;
 }
