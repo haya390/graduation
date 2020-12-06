@@ -52,12 +52,12 @@ void SET_PLAYER_BULLET(){
 		for (int i = 0; i < 20; i++){
 			if (HERO.BULLET[i].living == FALSE){
 				if (i != 0){
-					int Tseigyo = HERO.BULLET[i].time - HERO.BULLET[i - 1].time;
+					int Tseigyo = timer - HERO.BULLET[i - 1].time;
 					if (Tseigyo <= 1.5){
 						HERO.BULLET[i - 1].time = GetNowCount();
 						break;
 					}
-					HERO.BULLET[i].time = (GetNowCount() - timer) / 1000;
+					HERO.BULLET[i].time = (GetNowCount() / 1000 - timer);
 					HERO.BULLET[i].living = TRUE;
 					HERO.BULLET[i].x = HERO.x;
 					HERO.BULLET[i].y = HERO.y - 50;
@@ -66,7 +66,7 @@ void SET_PLAYER_BULLET(){
 					InitBulletImage(i);
 					break;
 				}else{
-					HERO.BULLET[i].time = (GetNowCount() - timer) / 1000;
+					HERO.BULLET[i].time = (GetNowCount() / 1000 - timer);
 					HERO.BULLET[i].living = TRUE;
 					HERO.BULLET[i].x = HERO.x;
 					HERO.BULLET[i].y = HERO.y - 50;
