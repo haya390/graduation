@@ -79,18 +79,16 @@ void CheckScroll(int flag){
 			scrolly += HERO.movement;
 		}
 	}
-	
-	/*画面外に出ないように補正をかける*/
-	if ((HERO.y + scrolly) != 2640 ){
-		if ((HERO.y + scrolly) < 2640){
-			/*画面の上に出ている*/
 
-		}
-		if ((HERO.y + scrolly) > 2640){
-			/*画面の下に出ている*/
-
-		}
+	/*画面外へ出ないように補正*/
+	if ((HERO.y + IMGSIZE) > MAX_MONITOR_SIZE - scrolly){
+		HERO.y -= HERO.movement;
 	}
+	/*下方向への補正　未完成*/
+	if ((HERO.y - HERO.movement < 0)){
+		HERO.y += HERO.movement;
+	}
+	
 }
 void DrawBullet(int flag){
 	int largefont = CreateFontToHandle("メイリオ", 42, -1, DX_FONTTYPE_NORMAL);
