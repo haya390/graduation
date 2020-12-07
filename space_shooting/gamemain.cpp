@@ -75,7 +75,7 @@ void gamemain(){
 	
 
 	clsDx();
-	printfDx("Y軸:%f\nX軸:%f\nスクロール量:%f\n時間:%d\nスクロール補正値:%d", HERO.y, HERO.x,scrolly, GetNowCount() / 1000 - timer,HERO.SC_Hosei);
+	//printfDx("Y軸:%f\nX軸:%f\nスクロール量:%f\n時間:%d\nスクロール補正値:%d", HERO.y, HERO.x,scrolly, GetNowCount() / 1000 - timer,HERO.SC_Hosei);
 }
 
 void DrawMap(){
@@ -102,7 +102,8 @@ void DrawMap(){
 				DrawGraph(HERO.x, HERO.y - 1950 + scrolly, HERO.IMGH[IMG_TYPE_FLAG][IMG_FLAME_RATE], TRUE);
 				break;
 			case boss:
-				DrawExtendGraph(STAGEBOSS.x, STAGEBOSS.y, 55, 55, STAGEBOSS.IMG1[0],TRUE);
+				DrawExtendGraph(STAGEBOSS.x , STAGEBOSS.y + scrolly, STAGEBOSS.x + IMGSIZE, STAGEBOSS.y + scrolly + IMGSIZE, STAGEBOSS.IMG1[0], TRUE);
+				DrawExtendGraph(STAGEBOSS.x, STAGEBOSS.y + scrolly - IMGSIZE, STAGEBOSS.x + IMGSIZE, STAGEBOSS.y + scrolly + IMGSIZE - IMGSIZE, STAGEBOSS.IMG2[0], TRUE);
 				break;
 			}
 		}
