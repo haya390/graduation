@@ -27,19 +27,29 @@ void Init_ENEMY1(int i, int x, int y){
 }
 void Init_ENEMY2(int i, int x, int y){
 
-
+	ENEMY[i].living = TRUE;
+	ENEMY[i].x = x * IMGSIZE;
+	ENEMY[i].y = y * IMGSIZE;
+	ENEMY[i].LIFE = 3;
+	ENEMY[i].type = red;
+	ENEMY[i].enemy_type = green;
 
 }
 void Init_ENEMY3(int i, int x, int y){
 
-
+	ENEMY[i].living = TRUE;
+	ENEMY[i].x = x * IMGSIZE;
+	ENEMY[i].y = y * IMGSIZE;
+	ENEMY[i].LIFE = 3;
+	ENEMY[i].type = red;
+	ENEMY[i].enemy_type = blue;
 
 }
 void Init_BOSS(int i,int x,int y){
 
 	STAGEBOSS.living = TRUE;
 	STAGEBOSS.x = x * IMGSIZE;
-	STAGEBOSS.y = y * IMGSIZE;
+	STAGEBOSS.y = y * IMGSIZE - 1950;
 	STAGEBOSS.LIFE = 500;
 	STAGEBOSS.movement = 1;
 	STAGEBOSS.type = 1;
