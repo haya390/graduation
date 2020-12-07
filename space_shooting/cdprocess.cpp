@@ -90,7 +90,7 @@ void CheckScroll(int flag){
 		HERO.y -= HERO.movement;
 	}
 	/*‰º•ûŒü‚Ö‚Ì•â³@–¢Š®¬*/
-	if ((SHP * IMGSIZE + HERO.SC_Hosei ) > (HERO.y - HERO.movement)){
+	if ((SHP * IMGSIZE - HERO.SC_Hosei ) > (HERO.y - HERO.movement)){
 		HERO.y += HERO.movement;
 	}
 	
