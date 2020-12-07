@@ -89,7 +89,6 @@ void CheckScroll(int flag){
 	if ((HERO.y + IMGSIZE) > MAX_MONITOR_SIZE - scrolly){
 		HERO.y -= HERO.movement;
 	}
-	/*‰º•ûŒü‚Ö‚Ì•â³@–¢Š®¬*/
 	if ((SHP * IMGSIZE - HERO.SC_Hosei ) > (HERO.y - HERO.movement)){
 		HERO.y += HERO.movement;
 	}
