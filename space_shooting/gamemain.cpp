@@ -75,7 +75,7 @@ void gamemain(){
 	
 
 	clsDx();
-	printfDx("Y軸:%f\nX軸:%f\nスクロール量:%f\n時間:%d", HERO.y, HERO.x,scrolly, GetNowCount() / 1000 - timer);
+	printfDx("Y軸:%f\nX軸:%f\nスクロール量:%f\n時間:%d\nスクロール補正値:%d", HERO.y, HERO.x,scrolly, GetNowCount() / 1000 - timer,HERO.SC_Hosei);
 }
 
 void DrawMap(){
