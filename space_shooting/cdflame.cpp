@@ -5,6 +5,7 @@ int bullet_count = sizeof(HERO.BULLET) / sizeof(HERO.BULLET[0]);
 
 
 void syokika(){
+	HERO.SC_Hosei = 0;
 	scrolly = 0;
 	InitStage(HERO.StageNum);
 	HERO.LIFE = 3;
