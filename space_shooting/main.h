@@ -22,5 +22,7 @@ int keychecker_b(int);
 extern int gamemainsize_x;
 extern int gamemainsize_y;
 extern int timer;
+extern int MAX_MONITOR_SIZE;
+extern int MIN_MONITOR_SIZE;
 
 #endif

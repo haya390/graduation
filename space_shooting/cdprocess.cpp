@@ -39,10 +39,10 @@ BOOL CheckEnd(int i){
 	switch (i)
 	{
 	case 1:
-		if (HERO.y - HERO.movement < 0) return FALSE;
+		if (HERO.y - HERO.movement <= 0) return FALSE;
 		break;
 	case 2:
-		if (SHP * IMGSIZE + ((50 - SHP) * IMGSIZE) < HERO.y + IMGSIZE + HERO.movement)return FALSE;
+		if (SHP * IMGSIZE + ((50 - SHP) * IMGSIZE) <= HERO.y + IMGSIZE + HERO.movement)return FALSE;
 		break;
 	case 3:
 		if (HERO.x - HERO.movement < 0)return FALSE;
@@ -64,7 +64,9 @@ void CheckScroll(int flag){
 	if (HERO.y >= 0 && HERO.y <= 800){
 		if (flag == 2){
 			scrolly -= HERO.movement;
+			HERO.SC_Hosei += HERO.movement;
 		}
+
 	}
 	if (HERO.y > 800 && HERO.y <= 1950){
 		if (flag == 1){
@@ -78,19 +80,20 @@ void CheckScroll(int flag){
 		if (flag == 1){
 			scrolly += HERO.movement;
 		}
+		if (flag == 2 && scrolly == 0){
+			HERO.SC_Hosei += HERO.movement;
+		}
+	}
+
+	/*画面外へ出ないように補正*/
+	if ((HERO.y + IMGSIZE) > MAX_MONITOR_SIZE - scrolly){
+		HERO.y -= HERO.movement;
+	}
+	/*下方向への補正　未完成*/
+	if ((SHP * IMGSIZE - HERO.SC_Hosei ) > (HERO.y - HERO.movement)){
+		HERO.y += HERO.movement;
 	}
 	
-	/*画面外に出ないように補正をかける*/
-	if ((HERO.y + scrolly) != 2640 ){
-		if ((HERO.y + scrolly) < 2640){
-			/*画面の上に出ている*/
-
-		}
-		if ((HERO.y + scrolly) > 2640){
-			/*画面の下に出ている*/
-
-		}
-	}
 }
 void DrawBullet(int flag){
 	int largefont = CreateFontToHandle("メイリオ", 42, -1, DX_FONTTYPE_NORMAL);

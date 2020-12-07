@@ -5,6 +5,7 @@ int bullet_count = sizeof(HERO.BULLET) / sizeof(HERO.BULLET[0]);
 
 
 void syokika(){
+	HERO.SC_Hosei = 0;
 	scrolly = 0;
 	InitStage(HERO.StageNum);
 	HERO.LIFE = 3;
@@ -26,19 +27,29 @@ void Init_ENEMY1(int i, int x, int y){
 }
 void Init_ENEMY2(int i, int x, int y){
 
-
+	ENEMY[i].living = TRUE;
+	ENEMY[i].x = x * IMGSIZE;
+	ENEMY[i].y = y * IMGSIZE;
+	ENEMY[i].LIFE = 3;
+	ENEMY[i].type = red;
+	ENEMY[i].enemy_type = green;
 
 }
 void Init_ENEMY3(int i, int x, int y){
 
-
+	ENEMY[i].living = TRUE;
+	ENEMY[i].x = x * IMGSIZE;
+	ENEMY[i].y = y * IMGSIZE;
+	ENEMY[i].LIFE = 3;
+	ENEMY[i].type = red;
+	ENEMY[i].enemy_type = blue;
 
 }
 void Init_BOSS(int i,int x,int y){
 
 	STAGEBOSS.living = TRUE;
 	STAGEBOSS.x = x * IMGSIZE;
-	STAGEBOSS.y = y * IMGSIZE;
+	STAGEBOSS.y = y * IMGSIZE - 1950;
 	STAGEBOSS.LIFE = 500;
 	STAGEBOSS.movement = 1;
 	STAGEBOSS.type = 1;
@@ -52,12 +63,12 @@ void SET_PLAYER_BULLET(){
 		for (int i = 0; i < 20; i++){
 			if (HERO.BULLET[i].living == FALSE){
 				if (i != 0){
-					int Tseigyo = HERO.BULLET[i].time - HERO.BULLET[i - 1].time;
+					int Tseigyo = timer - HERO.BULLET[i - 1].time;
 					if (Tseigyo <= 1.5){
 						HERO.BULLET[i - 1].time = GetNowCount();
 						break;
 					}
-					HERO.BULLET[i].time = (GetNowCount() - timer) / 1000;
+					HERO.BULLET[i].time = (GetNowCount() / 1000 - timer);
 					HERO.BULLET[i].living = TRUE;
 					HERO.BULLET[i].x = HERO.x;
 					HERO.BULLET[i].y = HERO.y - 50;
@@ -66,7 +77,7 @@ void SET_PLAYER_BULLET(){
 					InitBulletImage(i);
 					break;
 				}else{
-					HERO.BULLET[i].time = (GetNowCount() - timer) / 1000;
+					HERO.BULLET[i].time = (GetNowCount() / 1000 - timer);
 					HERO.BULLET[i].living = TRUE;
 					HERO.BULLET[i].x = HERO.x;
 					HERO.BULLET[i].y = HERO.y - 50;

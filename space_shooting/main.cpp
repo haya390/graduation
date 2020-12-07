@@ -1,6 +1,9 @@
 #include"main.h"
 #include<DxLib.h>
 
+int MAX_MONITOR_SIZE = MAPHEIGHT * IMGSIZE;
+int MIN_MONITOR_SIZE = 0 - MAX_MONITOR_SIZE + gamemainsize_y;
+
 int monitorsize_x = 960;
 int monitorsize_y = 840;
 

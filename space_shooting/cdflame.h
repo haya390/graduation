@@ -22,6 +22,7 @@ struct Data{
 struct Charadata{
 	float x;/*横軸*/
 	float y;/*縦軸*/
+	int SC_Hosei;/*スクロール前に発生したY軸の変更によって発生する相違を補正する*/
 	int LIFE;/*最大被弾回数*/
 	float movement;/*移動量*/
 	BOOL ScrollUpper;/*上方向へのスクロール可否*/
