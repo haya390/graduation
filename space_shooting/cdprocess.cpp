@@ -116,7 +116,7 @@ void DrawBullet(int flag){
 				DrawExtendGraph(HERO.BULLET[i].x,HERO.BULLET[i].y - 1950,HERO.BULLET[i].x + IMGSIZE,HERO.BULLET[i].y - 1950 + IMGSIZE,HERO.BULLET[i].BULLET_IMAGE,TRUE);
 				break;
 			}
-			if (HERO.BULLET[i].y + IMGSIZE <= (HERO.y + 110 - gamemainsize_y)){
+			if (){
 				HERO.BULLET[i].living = FALSE;
 			}
 			if(HERO.BULLET[i].living == TRUE){
