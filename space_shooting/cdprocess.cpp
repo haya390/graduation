@@ -7,14 +7,6 @@ float scrolly = 0;
 void move(){
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 
-	int aa = timer;
-	float hy = HERO.y - 1700;
-	aa += 1;
-	if (timer < aa)
-	{
-		//scrolly += 1;
-	}
-
 	if (key & PAD_INPUT_UP && CheckEnd(1) == TRUE){
 		HERO.y -= HERO.movement;
 		CheckScroll(1);
@@ -116,7 +108,7 @@ void DrawBullet(int flag){
 				DrawExtendGraph(HERO.BULLET[i].x,HERO.BULLET[i].y - 1950,HERO.BULLET[i].x + IMGSIZE,HERO.BULLET[i].y - 1950 + IMGSIZE,HERO.BULLET[i].BULLET_IMAGE,TRUE);
 				break;
 			}
-			if (){
+			if (HERO.BULLET[i].living == TRUE && HERO.BULLET[i].SBP - 800 > HERO.BULLET[i].y){
 				HERO.BULLET[i].living = FALSE;
 			}
 			if(HERO.BULLET[i].living == TRUE){
