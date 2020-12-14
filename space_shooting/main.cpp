@@ -28,7 +28,9 @@ int WINAPI WinMain(HINSTANCE h1, HINSTANCE hp, LPSTR lpc, int nC){
 	if (DxLib_Init() == -1)return -1;
 	if (IMGhandle() == -1)return -1;
 
-	timer = GetNowCount() / 1000;
+	timer = 0;
+	timer = GetNowCount();
+	LONGLONG a = GetNowHiPerformanceCount();
 
 	while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0){
 		ClearDrawScreen();
