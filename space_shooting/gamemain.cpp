@@ -75,14 +75,14 @@ void gamemain(){
 	
 
 	clsDx();
-	//printfDx("Y軸:%f\nX軸:%f\nスクロール量:%f\n時間:%d\nスクロール補正値:%d", HERO.y, HERO.x,scrolly, GetNowCount() / 1000 - timer,HERO.SC_Hosei);
+	printfDx("Y軸:%f\nX軸:%f\nスクロール量:%f\n時間:%d\nスクロール補正値:%d", HERO.y, HERO.x,scrolly, GetNowCount() / 1000 - timer / 1000,HERO.SC_Hosei);
 }
 
 void DrawMap(){
 
 	DrawGraph(0, 0 - 1950 + scrolly, field, TRUE);
 
-	if (GetNowCount() / 1000 - timer > 1)IMG_FLAME_RATE++;
+	if (GetNowCount() - timer > 1000)IMG_FLAME_RATE++;
 
 	for (int y = 0; y < MAPHEIGHT; y++){
 		for (int x = 0; x < MAPWIDTH; x++){
