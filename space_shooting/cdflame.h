@@ -10,6 +10,7 @@ enum ATKtype{
 };
 
 struct Data{
+	float SBP;/*’e‚ªÅ‰‚Éo‚½êŠ*/
 	float x; /*‰¡²*/
 	float y; /*c²*/
 	BOOL living; /*‘¶İØ–¾*/
@@ -53,6 +54,7 @@ extern CharaData STAGEBOSS;
 
 extern int hx,ex;
 extern int hy,ey;
+extern int KEY_KAISU;
 
 void syokika();
 void Init_ENEMY1(int, int, int);
