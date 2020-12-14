@@ -2,7 +2,7 @@
 
 int bullet_count = sizeof(HERO.BULLET) / sizeof(HERO.BULLET[0]);
 
-
+int KEY_KAISU = 0;
 
 void syokika(){
 	HERO.SC_Hosei = 0;
@@ -58,27 +58,30 @@ void Init_BOSS(int i,int x,int y){
 void SET_PLAYER_BULLET(){
 
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
+	int Tseigyo;
 
 	if (key & PAD_INPUT_A){
+		
 		for (int i = 0; i < 20; i++){
 			if (HERO.BULLET[i].living == FALSE){
 				if (i != 0){
-					int Tseigyo = timer - HERO.BULLET[i - 1].time;
-					if (Tseigyo <= 1.5){
-						HERO.BULLET[i - 1].time = GetNowCount();
+					HERO.BULLET[i].time = GetNowCount();
+					Tseigyo = HERO.BULLET[i].time - timer - HERO.BULLET[i - 1].time;
+					if (Tseigyo >= 2000){
+						HERO.BULLET[i].time = Tseigyo;
+						HERO.BULLET[i].living = TRUE;
+						HERO.BULLET[i].SBP = HERO.y;
+						HERO.BULLET[i].x = HERO.x;
+						HERO.BULLET[i].y = HERO.y - 50;
+						HERO.BULLET[i].type = HERO.type;
+						HERO.BULLET[i].movement = 7;
+						InitBulletImage(i);
 						break;
 					}
-					HERO.BULLET[i].time = (GetNowCount() / 1000 - timer);
-					HERO.BULLET[i].living = TRUE;
-					HERO.BULLET[i].x = HERO.x;
-					HERO.BULLET[i].y = HERO.y - 50;
-					HERO.BULLET[i].type = HERO.type;
-					HERO.BULLET[i].movement = 7;
-					InitBulletImage(i);
-					break;
 				}else{
-					HERO.BULLET[i].time = (GetNowCount() / 1000 - timer);
+					HERO.BULLET[i].time = GetNowCount() - timer;
 					HERO.BULLET[i].living = TRUE;
+					HERO.BULLET[i].SBP = HERO.y;
 					HERO.BULLET[i].x = HERO.x;
 					HERO.BULLET[i].y = HERO.y - 50;
 					HERO.BULLET[i].type = HERO.type;
@@ -91,6 +94,6 @@ void SET_PLAYER_BULLET(){
 				
 			}
 		}
-
+		
 	}
 }
