@@ -1,4 +1,4 @@
-#include"cdprocess.h"
+ï»¿#include"cdprocess.h"
 
 #define SCROLL_STAPOS 500
 
@@ -77,7 +77,7 @@ void CheckScroll(int flag){
 		}
 	}
 
-	/*‰æ–ÊŠO‚Öo‚È‚¢‚æ‚¤‚É•â³*/
+	/*ç”»é¢å¤–ã¸å‡ºãªã„ã‚ˆã†ã«è£œæ­£*/
 	if ((HERO.y + IMGSIZE) > MAX_MONITOR_SIZE - scrolly){
 		HERO.y -= HERO.movement;
 	}
@@ -86,32 +86,45 @@ void CheckScroll(int flag){
 	}
 	
 }
+
+void _Init_PLAYER_BULLET(int i){
+
+//	HERO.BULLET[i].time = 0;
+	HERO.BULLET[i].living = FALSE;
+	HERO.BULLET[i].SBP = 0;
+	HERO.BULLET[i].x = 0;
+	HERO.BULLET[i].y = 0;
+	HERO.BULLET[i].type = 0;
+	HERO.BULLET[i].movement = 0;
+}
+
 void DrawBullet(int flag){
-	int largefont = CreateFontToHandle("ƒƒCƒŠƒI", 42, -1, DX_FONTTYPE_NORMAL);
+	int largefont = CreateFontToHandle("ãƒ¡ã‚¤ãƒªã‚ª", 42, -1, DX_FONTTYPE_NORMAL);
 
 	if (flag == E){
 
 	}else if (flag == P){
-		for (int i = 0; HERO.BULLET[i].living == TRUE; i++){
-			switch (HERO.BULLET[i].type)
-			{
-			case red:
-				DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1950, HERO.BULLET[i].BULLET_IMAGE, TRUE);
-				break;
-			case blue:
-				DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1950, HERO.BULLET[i].BULLET_IMAGE, TRUE);
-				break;
-			case green:
-				DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1950, HERO.BULLET[i].BULLET_IMAGE, TRUE);
-				break;
-			case beam:
-				DrawExtendGraph(HERO.BULLET[i].x,HERO.BULLET[i].y - 1950,HERO.BULLET[i].x + IMGSIZE,HERO.BULLET[i].y - 1950 + IMGSIZE,HERO.BULLET[i].BULLET_IMAGE,TRUE);
-				break;
-			}
-			if (HERO.BULLET[i].living == TRUE && HERO.BULLET[i].SBP - 800 > HERO.BULLET[i].y){
-				HERO.BULLET[i].living = FALSE;
-			}
-			if(HERO.BULLET[i].living == TRUE){
+		for (int i = 0; HERO.BULLET[i].living < 20 ; i++){
+			//for (int i = 0; HERO.BULLET[i].living == TRUE; i++){
+			if (HERO.BULLET[i].living == TRUE){
+				switch (HERO.BULLET[i].type)
+				{
+				case red:
+					DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1950, HERO.BULLET[i].BULLET_IMAGE, TRUE);
+					break;
+				case blue:
+					DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1950, HERO.BULLET[i].BULLET_IMAGE, TRUE);
+					break;
+				case green:
+					DrawGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1950, HERO.BULLET[i].BULLET_IMAGE, TRUE);
+					break;
+				case beam:
+					DrawExtendGraph(HERO.BULLET[i].x, HERO.BULLET[i].y - 1950, HERO.BULLET[i].x + IMGSIZE, HERO.BULLET[i].y - 1950 + IMGSIZE, HERO.BULLET[i].BULLET_IMAGE, TRUE);
+					break;
+				}
+				if (HERO.BULLET[i].SBP - 800 > HERO.BULLET[i].y){
+					_Init_PLAYER_BULLET(i);
+				}
 				HERO.BULLET[i].y -= HERO.BULLET[i].movement;
 			}
 		}
