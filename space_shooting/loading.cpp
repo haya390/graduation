@@ -1,4 +1,4 @@
-#include"loading.h"
+ï»¿#include"loading.h"
 #include"cdflame.h"
 #include<string.h>
 
@@ -16,33 +16,33 @@ BOOL IMGhandle(){
 
 	
 
-	/*ƒ^ƒCƒgƒ‹‰æ‘œ‚Ì“Ç‚İ‚İ*/
-	TITLE = LoadGraph("media\\GameEndImg\\ƒ^ƒCƒgƒ‹.png");
+	/*ã‚¿ã‚¤ãƒˆãƒ«ç”»åƒã®èª­ã¿è¾¼ã¿*/
+	TITLE = LoadGraph("media\\GameEndImg\\ã‚¿ã‚¤ãƒˆãƒ«.png");
 	if (TITLE == -1)return FALSE;
 
-	/*ƒQ[ƒ€–{•Ò‚Ì”wŒi‰æ‘œ*/
-	field = LoadGraph("media\\stagedata\\”wŒi(ƒXƒe[ƒW1).png");
+	/*ã‚²ãƒ¼ãƒ æœ¬ç·¨ã®èƒŒæ™¯ç”»åƒ*/
+	field = LoadGraph("media\\stagedata\\èƒŒæ™¯(ã‚¹ãƒ†ãƒ¼ã‚¸1).png");
 
-	/*ƒQ[ƒ€ƒI[ƒo[‰æ‘œ‚Ì“Ç‚İ‚İ*/
-	GAMEOVER = LoadGraph("media\\GameEndImg\\ƒQ[ƒ€ƒI[ƒo[‰æ–Ê.png");
+	/*ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼ç”»åƒã®èª­ã¿è¾¼ã¿*/
+	GAMEOVER = LoadGraph("media\\GameEndImg\\ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼ç”»é¢.png");
 
-	/*’e‚Ì“Ç‚İ‚İ*/
-	BULLET[0] = LoadGraph("media\\’e\\‘®«’e(Ô) Œó•â1.png");
+	/*å¼¾ã®èª­ã¿è¾¼ã¿*/
+	BULLET[0] = LoadGraph("media\\å¼¾\\å±æ€§å¼¾(èµ¤) å€™è£œ1.png");
 	if (BULLET[0] == -1)return FALSE;
-	BULLET[1] = LoadGraph("media\\’e\\‘®«’e(Â) Œó•â3.png");
+	BULLET[1] = LoadGraph("media\\å¼¾\\å±æ€§å¼¾(é’) å€™è£œ3.png");
 	if (BULLET[1] == -1)return FALSE;
-	BULLET[2] = LoadGraph("media\\’e\\‘®«’e(—Î) Œó•â1.png");
+	BULLET[2] = LoadGraph("media\\å¼¾\\å±æ€§å¼¾(ç·‘) å€™è£œ1.png");
 	if (BULLET[2] == -1)return FALSE;
-	BULLET[3] = LoadGraph("media\\’e\\ƒŒ[ƒU[ ©‹@ê—p.png");
+	BULLET[3] = LoadGraph("media\\å¼¾\\ãƒ¬ãƒ¼ã‚¶ãƒ¼ è‡ªæ©Ÿå°‚ç”¨.png");
 	if (BULLET[3] == -1)return FALSE;
 
-	/*“G‹@‚Ì‰æ‘œ“Ç‚İ‚İiG‹›j*/
+	/*æ•µæ©Ÿã®ç”»åƒèª­ã¿è¾¼ã¿ï¼ˆé›‘é­šï¼‰*/
 	for (int i = 0 , soeji = 1; i < 13; i++,soeji++){
 		
 		char red[50], blue[50], green[50];
-		sprintf_s(red, "media\\Ô\\%d.ƒvƒŒ\ƒ“(Ô).png", soeji);
-		sprintf_s(blue, "media\\Â\\%d.ƒvƒŒ\ƒ“(Â).png", soeji);
-		sprintf_s(green, "media\\—Î\\%d.ƒvƒŒ\ƒ“(—Î).png", soeji);
+		sprintf_s(red, "media\\èµ¤\\%d.ãƒ—ãƒ¬â€•ãƒ³(èµ¤).png", soeji);
+		sprintf_s(blue, "media\\é’\\%d.ãƒ—ãƒ¬â€•ãƒ³(é’).png", soeji);
+		sprintf_s(green, "media\\ç·‘\\%d.ãƒ—ãƒ¬â€•ãƒ³(ç·‘).png", soeji);
 
 		G_IMGhandle[enemy1][i] = LoadGraph(red,soeji);
 		if (G_IMGhandle[enemy1][i] == -1)return FALSE;
@@ -52,7 +52,7 @@ BOOL IMGhandle(){
 		if (G_IMGhandle[enemy3][i] == -1)return FALSE;
 	}
 
-	/*ƒ{ƒX‚Ì‰æ‘œ“Ç‚İ‚İ*/
+	/*ãƒœã‚¹ã®ç”»åƒèª­ã¿è¾¼ã¿*/
 	STAGEBOSS.IMG1[0] = LoadGraph("media\\enemy_img\\STBF.png");
 	STAGEBOSS.IMG1[1] = LoadGraph("media\\enemy_img\\STBFS.png");
 	STAGEBOSS.IMG2[0] = LoadGraph("media\\enemy_img\\ST1B0.png");
@@ -60,7 +60,7 @@ BOOL IMGhandle(){
 	STAGEBOSS.IMG2[2] = LoadGraph("media\\enemy_img\\ST1B2.png");
 	STAGEBOSS.IMG2[3] = LoadGraph("media\\enemy_img\\ST1B3.png");
 
-	/*©‹@‚Ì‰æ‘œ“Ç‚İ‚İ*/
+	/*è‡ªæ©Ÿã®ç”»åƒèª­ã¿è¾¼ã¿*/
 	LoadDivGraph("media\\img_sub\\R.png", 12, 6, 2, 55, 55, HERO.IMGH[0]);
 	LoadDivGraph("media\\img_sub\\B.png", 12, 6, 2, 55, 55, HERO.IMGH[1]);
 	LoadDivGraph("media\\img_sub\\G.png", 12, 6, 2, 55, 55, HERO.IMGH[2]);
