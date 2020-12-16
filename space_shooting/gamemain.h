@@ -1,4 +1,4 @@
-#ifndef __GAMEMAIN_H__
+ï»¿#ifndef __GAMEMAIN_H__
 #define __GAMEMAIN_H__
 
 #include<DxLib.h>
@@ -15,12 +15,12 @@ enum MAPDATA
 void gamemain();
 void InitStage(int);
 
-#define MAPWIDTH 12 /*•*/
-#define MAPHEIGHT 50 /*‚‚³*/
-#define IMGSIZE 55/*‰æ‘œƒTƒCƒY*/
+#define MAPWIDTH 12 /*å¹…*/
+#define MAPHEIGHT 50 /*é«˜ã•*/
+#define IMGSIZE 55/*ç”»åƒã‚µã‚¤ã‚º*/
 
 extern int MAPDATA[MAPHEIGHT][MAPWIDTH];
-extern int SHP;/*©‹@‰ŠúˆÊ’u*/
+extern int SHP;/*è‡ªæ©ŸåˆæœŸä½ç½®*/
 
 void DrawMap();
 
