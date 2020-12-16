@@ -1,4 +1,4 @@
-#ifndef __CDFLAME_H__
+ï»¿#ifndef __CDFLAME_H__
 #define __CDFLAME_H__
 
 #include<DxLib.h>
@@ -10,42 +10,42 @@ enum ATKtype{
 };
 
 struct Data{
-	float SBP;/*’e‚ªÅ‰‚Éo‚½êŠ*/
-	float x; /*‰¡²*/
-	float y; /*c²*/
-	BOOL living; /*‘¶İØ–¾*/
-	int type; /*‘®«‚ÌØ‚è‘Ö‚¦*/
-	float movement; /*ˆÚ“®—Ê*/
-	int BULLET_IMAGE;/*’e‚Ì‰æ‘œ*/
-	int time;/*ƒN[ƒ‹ƒ^ƒCƒ€*/
+	float SBP;/*å¼¾ãŒæœ€åˆã«å‡ºãŸå ´æ‰€*/
+	float x; /*æ¨ªè»¸*/
+	float y; /*ç¸¦è»¸*/
+	BOOL living; /*å­˜åœ¨è¨¼æ˜*/
+	int type; /*å±æ€§ã®åˆ‡ã‚Šæ›¿ãˆ*/
+	float movement; /*ç§»å‹•é‡*/
+	int BULLET_IMAGE;/*å¼¾ã®ç”»åƒ*/
+	int time;/*ã‚¯ãƒ¼ãƒ«ã‚¿ã‚¤ãƒ */
 };
 
 struct Charadata{
-	float x;/*‰¡²*/
-	float y;/*c²*/
-	int SC_Hosei;/*ƒXƒNƒ[ƒ‹‘O‚É”­¶‚µ‚½Y²‚Ì•ÏX‚É‚æ‚Á‚Ä”­¶‚·‚é‘Šˆá‚ğ•â³‚·‚é*/
-	int LIFE;/*Å‘å”í’e‰ñ”*/
-	float movement;/*ˆÚ“®—Ê*/
-	BOOL ScrollUpper;/*ã•ûŒü‚Ö‚ÌƒXƒNƒ[ƒ‹‰Â”Û*/
-	BOOL ScrollBelow;/*‰º•ûŒü‚Ö‚ÌƒXƒNƒ[ƒ‹‰Â”Û*/
-	int type;/*‘®«‚ÌØ‚è‘Ö‚¦*/
-	BOOL living;/*‘¶İØ–¾*/
-	Data BULLET[20];/*©‹@/“G‹@‚Ì’e*/
-	int StageNum;/*ƒRƒ“ƒeƒBƒjƒ…[‚·‚éÛ‚ÌƒXƒe[ƒWƒiƒ“ƒo[‚Ì‹L˜^*/
-	int IMGH[4][12];/*©‹@‚Ì‰æ‘œ*/
+	float x;/*æ¨ªè»¸*/
+	float y;/*ç¸¦è»¸*/
+	int SC_Hosei;/*ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«å‰ã«ç™ºç”Ÿã—ãŸYè»¸ã®å¤‰æ›´ã«ã‚ˆã£ã¦ç™ºç”Ÿã™ã‚‹ç›¸é•ã‚’è£œæ­£ã™ã‚‹*/
+	int LIFE;/*æœ€å¤§è¢«å¼¾å›æ•°*/
+	float movement;/*ç§»å‹•é‡*/
+	BOOL ScrollUpper;/*ä¸Šæ–¹å‘ã¸ã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«å¯å¦*/
+	BOOL ScrollBelow;/*ä¸‹æ–¹å‘ã¸ã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«å¯å¦*/
+	int type;/*å±æ€§ã®åˆ‡ã‚Šæ›¿ãˆ*/
+	BOOL living;/*å­˜åœ¨è¨¼æ˜*/
+	Data BULLET[20];/*è‡ªæ©Ÿ/æ•µæ©Ÿã®å¼¾*/
+	int StageNum;/*ã‚³ãƒ³ãƒ†ã‚£ãƒ‹ãƒ¥ãƒ¼ã™ã‚‹éš›ã®ã‚¹ãƒ†ãƒ¼ã‚¸ãƒŠãƒ³ãƒãƒ¼ã®è¨˜éŒ²*/
+	int IMGH[4][12];/*è‡ªæ©Ÿã®ç”»åƒ*/
 };
 
 struct CharaData{
-	int enemy_type;/*1 2 3ƒpƒ^[ƒ“*/
-	float x;/*‰¡²*/
-	float y;/*c²*/
-	int LIFE;/*Å‘å”í’e‰ñ”*/
-	float movement;/*ˆÚ“®—Ê*/
-	int type;/*‘®«‚ÌØ‚è‘Ö‚¦*/
-	BOOL living;/*‘¶İØ–¾*/
-	Data BULLET[20];/*©‹@/“G‹@‚Ì’e*/
-	int IMG1[2];/*G‹›“I‚Ì‰æ‘œ‚à‚µ‚­‚Íƒ{ƒX‚Ì‘O•”•ªê—p*/
-	int IMG2[4];/*ƒ{ƒX‚ÌŒã‚ë•”•ªê—p*/
+	int enemy_type;/*1 2 3ãƒ‘ã‚¿ãƒ¼ãƒ³*/
+	float x;/*æ¨ªè»¸*/
+	float y;/*ç¸¦è»¸*/
+	int LIFE;/*æœ€å¤§è¢«å¼¾å›æ•°*/
+	float movement;/*ç§»å‹•é‡*/
+	int type;/*å±æ€§ã®åˆ‡ã‚Šæ›¿ãˆ*/
+	BOOL living;/*å­˜åœ¨è¨¼æ˜*/
+	Data BULLET[20];/*è‡ªæ©Ÿ/æ•µæ©Ÿã®å¼¾*/
+	int IMG1[2];/*é›‘é­šçš„ã®ç”»åƒã‚‚ã—ãã¯ãƒœã‚¹ã®å‰éƒ¨åˆ†å°‚ç”¨*/
+	int IMG2[4];/*ãƒœã‚¹ã®å¾Œã‚éƒ¨åˆ†å°‚ç”¨*/
 };
 
 extern Charadata HERO;
@@ -55,6 +55,8 @@ extern CharaData STAGEBOSS;
 extern int hx,ex;
 extern int hy,ey;
 extern int KEY_KAISU;
+
+extern int g_last_bullet;
 
 void syokika();
 void Init_ENEMY1(int, int, int);
