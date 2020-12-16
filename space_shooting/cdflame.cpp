@@ -1,8 +1,9 @@
-#include"cdflame.h"
+﻿#include"cdflame.h"
 
 int bullet_count = sizeof(HERO.BULLET) / sizeof(HERO.BULLET[0]);
 
 int KEY_KAISU = 0;
+int g_last_bullet;
 
 void syokika(){
 	HERO.SC_Hosei = 0;
@@ -55,45 +56,50 @@ void Init_BOSS(int i,int x,int y){
 	STAGEBOSS.type = 1;
 
 }
+
 void SET_PLAYER_BULLET(){
 
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	int Tseigyo;
 
 	if (key & PAD_INPUT_A){
-		
-		for (int i = 0; i < 20; i++){
-			if (HERO.BULLET[i].living == FALSE){
-				if (i != 0){
-					HERO.BULLET[i].time = GetNowCount();
-					Tseigyo = HERO.BULLET[i].time - timer - HERO.BULLET[i - 1].time;
-					if (Tseigyo >= 2000){
-						HERO.BULLET[i].time = Tseigyo;
-						HERO.BULLET[i].living = TRUE;
-						HERO.BULLET[i].SBP = HERO.y;
-						HERO.BULLET[i].x = HERO.x;
-						HERO.BULLET[i].y = HERO.y - 50;
-						HERO.BULLET[i].type = HERO.type;
-						HERO.BULLET[i].movement = 7;
-						InitBulletImage(i);
-						break;
-					}
+		if (g_last_bullet == 19) {
+			g_last_bullet = 0;
+		}
+
+		while(g_last_bullet < 20){
+			if (HERO.BULLET[g_last_bullet].living == FALSE){
+				if (g_last_bullet != 0){
+					HERO.BULLET[g_last_bullet].time = GetNowCount();
+						Tseigyo = HERO.BULLET[g_last_bullet].time - HERO.BULLET[g_last_bullet - 1].time;
+						if (Tseigyo >= 500){
+//							HERO.BULLET[i].time = Tseigyo;
+							HERO.BULLET[g_last_bullet].living = TRUE;
+							HERO.BULLET[g_last_bullet].SBP = HERO.y;
+							HERO.BULLET[g_last_bullet].x = HERO.x;
+							HERO.BULLET[g_last_bullet].y = HERO.y - 50;
+							HERO.BULLET[g_last_bullet].type = HERO.type;
+							HERO.BULLET[g_last_bullet].movement = 7;
+							InitBulletImage(g_last_bullet);
+							++g_last_bullet;
+							break;
+						}
+
 				}else{
-					HERO.BULLET[i].time = GetNowCount() - timer;
-					HERO.BULLET[i].living = TRUE;
-					HERO.BULLET[i].SBP = HERO.y;
-					HERO.BULLET[i].x = HERO.x;
-					HERO.BULLET[i].y = HERO.y - 50;
-					HERO.BULLET[i].type = HERO.type;
-					HERO.BULLET[i].movement = 7;
-					InitBulletImage(i);
+					HERO.BULLET[g_last_bullet].time = GetNowCount();
+//					HERO.BULLET[i].time = GetNowCount() - timer;
+					HERO.BULLET[g_last_bullet].living = TRUE;
+					HERO.BULLET[g_last_bullet].SBP = HERO.y;
+					HERO.BULLET[g_last_bullet].x = HERO.x;
+					HERO.BULLET[g_last_bullet].y = HERO.y - 50;
+					HERO.BULLET[g_last_bullet].type = HERO.type;
+					HERO.BULLET[g_last_bullet].movement = 7;
+					InitBulletImage(g_last_bullet);
+					++g_last_bullet;
 					break;
 				}
-
-			}else{
-				
 			}
+			break;
 		}
-		
 	}
 }
