@@ -1,4 +1,4 @@
-#ifndef __CDPROCESS_H__
+ï»¿#ifndef __CDPROCESS_H__
 #define __CDPROCESS_H__
 
 #include"main.h"
@@ -12,7 +12,7 @@ enum hanbetu{
 void move();
 BOOL CheckEnd(int);
 void CheckScroll(int);
-void DrawBullet(int);/*1‚Ì©‹@/2‚Ì“G‹@1/3‚Ì“G‹@2/4‚Ì“G‹@3*/
+void DrawBullet(int);/*1ã®æ™‚è‡ªæ©Ÿ/2ã®æ™‚æ•µæ©Ÿ1/3ã®æ™‚æ•µæ©Ÿ2/4ã®æ™‚æ•µæ©Ÿ3*/
 
 extern float scrolly;
 
