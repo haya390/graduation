@@ -53,12 +53,12 @@ void gamemain(){
 	/*
 
 	*/
-
-	SET_PLAYER_BULLET();
+	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
+	if (key & PAD_INPUT_A){
+		SET_PLAYER_BULLET();
+	}
 	DrawBullet(P);
 
-	
-	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	if (key & PAD_INPUT_2){
 		if (HERO.type == beam){
 			HERO.type = red;
@@ -75,14 +75,14 @@ void gamemain(){
 	
 
 	clsDx();
-	printfDx("Y軸:%f\nX軸:%f\nスクロール量:%f\n時間:%d", HERO.y, HERO.x,scrolly, GetNowCount() / 1000 - timer);
+	printfDx("Y軸:%f\nX軸:%f\nスクロール量:%f\n時間:%d\nスクロール補正値:%d\n弾数:%d\n", HERO.y, HERO.x,scrolly, GetNowCount() - timer,HERO.SC_Hosei,HERO.soeji);
 }
 
 void DrawMap(){
 
 	DrawGraph(0, 0 - 1950 + scrolly, field, TRUE);
 
-	if (IMG_FLAME_RATE == 11) IMG_FLAME_RATE = 0;
+	if (GetNowCount() - timer > 1000)IMG_FLAME_RATE++;
 
 	for (int y = 0; y < MAPHEIGHT; y++){
 		for (int x = 0; x < MAPWIDTH; x++){
@@ -102,10 +102,11 @@ void DrawMap(){
 				DrawGraph(HERO.x, HERO.y - 1950 + scrolly, HERO.IMGH[IMG_TYPE_FLAG][IMG_FLAME_RATE], TRUE);
 				break;
 			case boss:
-				DrawExtendGraph(STAGEBOSS.x, STAGEBOSS.y, 55, 55, STAGEBOSS.IMG1[0],TRUE);
+				DrawExtendGraph(STAGEBOSS.x , STAGEBOSS.y + scrolly, STAGEBOSS.x + IMGSIZE, STAGEBOSS.y + scrolly + IMGSIZE, STAGEBOSS.IMG1[0], TRUE);
+				DrawExtendGraph(STAGEBOSS.x, STAGEBOSS.y + scrolly - IMGSIZE, STAGEBOSS.x + IMGSIZE, STAGEBOSS.y + scrolly + IMGSIZE - IMGSIZE, STAGEBOSS.IMG2[0], TRUE);
 				break;
 			}
 		}
 	}
-	IMG_FLAME_RATE++;
+	if (IMG_FLAME_RATE == 11) IMG_FLAME_RATE = 0;
 }
