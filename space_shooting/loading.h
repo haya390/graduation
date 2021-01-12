@@ -14,6 +14,7 @@ extern int gif[4][12];
 extern int BOSS;
 extern int TITLE;
 extern int GAMEOVER;
+extern int GAMECLEAR;
 extern int BULLET[4];
 
 BOOL IMGhandle();
