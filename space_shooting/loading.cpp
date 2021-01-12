@@ -5,6 +5,7 @@
 int G_IMGhandle[10][13];
 int TITLE;
 int GAMEOVER;
+int GAMECLEAR;
 int field;
 int BULLET[4];
 
@@ -14,7 +15,7 @@ CharaData STAGEBOSS;
 
 BOOL IMGhandle(){
 
-	
+
 
 	/*タイトル画像の読み込み*/
 	TITLE = LoadGraph("media\\GameEndImg\\タイトル.png");
@@ -25,6 +26,9 @@ BOOL IMGhandle(){
 
 	/*ゲームオーバー画像の読み込み*/
 	GAMEOVER = LoadGraph("media\\GameEndImg\\ゲームオーバー画面.png");
+
+	/*ゲームクリア画像の読み込み*/
+	GAMECLEAR = LoadGraph("media\\GameEndImg\\ゲームクリア画面(エンディング).png");
 
 	/*弾の読み込み*/
 	BULLET[0] = LoadGraph("media\\弾\\属性弾(赤) 候補1.png");
@@ -37,20 +41,20 @@ BOOL IMGhandle(){
 	if (BULLET[3] == -1)return FALSE;
 
 	/*敵機の画像読み込み（雑魚）*/
-	//for (int i = 0 , soeji = 1; i < 13; i++,soeji++){
-	//	
-	//	char red[50], blue[50], green[50];
-	//	sprintf_s(red, "media\\赤\\%d.プレ―ン(赤).png", soeji);
-	//	sprintf_s(blue, "media\\青\\%d.プレ―ン(青).png", soeji);
-	//	sprintf_s(green, "media\\緑\\%d.プレ―ン(緑).png", soeji);
+	for (int i = 0, soeji = 1; i < 13; i++, soeji++){
 
-	//	G_IMGhandle[enemy1][i] = LoadGraph(red,soeji);
-	//	if (G_IMGhandle[enemy1][i] == -1)return FALSE;
-	//	G_IMGhandle[enemy2][i] = LoadGraph(blue,soeji);
-	//	if (G_IMGhandle[enemy2][i] == -1)return FALSE;
-	//	G_IMGhandle[enemy3][i] = LoadGraph(green,soeji);
-	//	if (G_IMGhandle[enemy3][i] == -1)return FALSE;
-	//}
+		char red[50], blue[50], green[50];
+		sprintf_s(red, "media\\赤\\%d.プレ―ン(赤).png", soeji);
+		sprintf_s(blue, "media\\青\\%d.プレ―ン(青).png", soeji);
+		sprintf_s(green, "media\\緑\\%d.プレ―ン(緑).png", soeji);
+
+		G_IMGhandle[enemy1][i] = LoadGraph(red, soeji);
+		if (G_IMGhandle[enemy1][i] == -1)return FALSE;
+		G_IMGhandle[enemy2][i] = LoadGraph(blue, soeji);
+		if (G_IMGhandle[enemy2][i] == -1)return FALSE;
+		G_IMGhandle[enemy3][i] = LoadGraph(green, soeji);
+		if (G_IMGhandle[enemy3][i] == -1)return FALSE;
+	}
 
 	/*ボスの画像読み込み*/
 	STAGEBOSS.IMG1[0] = LoadGraph("media\\enemy_img\\STBF.png");
