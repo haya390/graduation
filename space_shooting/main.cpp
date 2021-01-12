@@ -77,6 +77,14 @@ void DrawGameMain(){
 		IMGhandle();
 		g_timestart = GetNowCount();
 	}
+	if (keychecker_e(key) == TRUE){
+		clsDx();
+		gametype = GAME_CLEAR;
+		SetGraphMode(monitorsize_x, monitorsize_y, 32);
+		IMGhandle();
+		g_timestart = GetNowCount();
+	}
+
 	gamemain();
 }
 void DrawGameOver(){
@@ -105,7 +113,24 @@ void DrawGameOver(){
 
 }
 void DrawGameClear(){
-	
+	clsDx();
+
+	int Timecount = GetNowCount();
+
+	DrawExtendGraph(0, 0, monitorsize_x, monitorsize_y, GAMECLEAR, TRUE);
+
+	/*DrawStringToHandle(200, 200, "左を押すとコンティニュー", GetColor(255, 255, 255), largefont, 32, FALSE);
+	DrawStringToHandle(200, 250, "右を押すとゲーム終了", GetColor(255, 255, 255), largefont, 32, FALSE);*/
+
+	if (CheckHitKey(KEY_INPUT_RIGHT) == TRUE){
+		exit(0);
+	}
+	if (Timecount - g_timestart > 5000){
+		gametype = GAME_TITLE;
+		SetGraphMode(monitorsize_x, monitorsize_y, 32);
+		IMGhandle();
+	}
+
 }
 int keychecker_z(int key){
 	if (key & PAD_INPUT_A){
@@ -121,6 +146,18 @@ int keychecker_z(int key){
 }
 int keychecker_b(int key){
 	if (key & PAD_INPUT_10){
+		if (g_akey_prev == FALSE){
+			g_akey_prev = TRUE;
+			return TRUE;
+		}
+	}
+	else{
+		g_akey_prev = FALSE;
+	}
+	return FALSE;
+}
+int keychecker_e(int key){
+	if (key & PAD_INPUT_C){
 		if (g_akey_prev == FALSE){
 			g_akey_prev = TRUE;
 			return TRUE;
