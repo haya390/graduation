@@ -10,6 +10,7 @@ enum ATKtype{
 };
 
 struct Data{
+	float SBP;/*弾が最初に出た場所*/
 	float x; /*横軸*/
 	float y; /*縦軸*/
 	BOOL living; /*存在証明*/
@@ -22,6 +23,7 @@ struct Data{
 struct Charadata{
 	float x;/*横軸*/
 	float y;/*縦軸*/
+	int SC_Hosei;/*スクロール前に発生したY軸の変更によって発生する相違を補正する*/
 	int LIFE;/*最大被弾回数*/
 	float movement;/*移動量*/
 	BOOL ScrollUpper;/*上方向へのスクロール可否*/
@@ -29,6 +31,7 @@ struct Charadata{
 	int type;/*属性の切り替え*/
 	BOOL living;/*存在証明*/
 	Data BULLET[20];/*自機/敵機の弾*/
+	int soeji;/*弾が何発撃たれたのかを記録*/
 	int StageNum;/*コンティニューする際のステージナンバーの記録*/
 	int IMGH[4][12];/*自機の画像*/
 };
@@ -52,6 +55,7 @@ extern CharaData STAGEBOSS;
 
 extern int hx,ex;
 extern int hy,ey;
+extern int KEY_KAISU;
 
 void syokika();
 void Init_ENEMY1(int, int, int);
