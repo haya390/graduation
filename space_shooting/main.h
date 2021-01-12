@@ -18,6 +18,7 @@ void DrawGameOver();
 void DrawGameClear();
 int keychecker_z(int);
 int keychecker_b(int);
+int keychecker_e(int);
 
 extern int gamemainsize_x;
 extern int gamemainsize_y;
