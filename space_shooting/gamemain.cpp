@@ -53,6 +53,7 @@ void gamemain(){
 	/*
 
 	*/
+
 	int key = GetJoypadInputState(DX_INPUT_KEY_PAD1);
 	if (key & PAD_INPUT_A){
 		SET_PLAYER_BULLET();
